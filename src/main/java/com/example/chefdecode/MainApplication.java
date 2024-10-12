@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.shape.Line;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -18,6 +17,7 @@ public class MainApplication extends Application {
 
         int windowHeight = 800;
         int windowWidth = 1440;
+        int space = 30;
 
         TextField searchBar = new TextField();
         searchBar.setStyle(
@@ -27,7 +27,7 @@ public class MainApplication extends Application {
         searchBar.setPrefWidth(500);
         searchBar.setPrefHeight(30);
         searchBar.setLayoutX(windowWidth / 2 - searchBar.getPrefWidth() / 2);
-        searchBar.setLayoutY(15);
+        searchBar.setLayoutY(space);
 
         root.getChildren().add(searchBar);
 
@@ -41,7 +41,7 @@ public class MainApplication extends Application {
 
         searchButton.setPrefWidth(100);
         searchButton.setLayoutX(windowWidth / 2 + searchBar.getLayoutX() / 2 - 60);
-        searchButton.setLayoutY(17);
+        searchButton.setLayoutY(space + 2);
 
         root.getChildren().add(searchButton);
 
@@ -52,7 +52,7 @@ public class MainApplication extends Application {
                         "-fx-cursor: hand;"
         );
         recipeAddButton.setLayoutX(1150);
-        recipeAddButton.setLayoutY(20);
+        recipeAddButton.setLayoutY(space);
         recipeAddButton.setPrefWidth(100);
         root.getChildren().add(recipeAddButton);
 
