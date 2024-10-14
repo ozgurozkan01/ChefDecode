@@ -1,0 +1,682 @@
+[
+  {
+    "RecipeID": 1,
+    "RecipeName": "Tavuk Sote",
+    "Category": "Ana Yemek",
+    "PreparationTime": 40,
+    "Instructions": [
+      "1. Tavuk göðsünü yýkayýn ve temizleyin. Küp þeklinde doðrayýn (5 dakika).",
+      "2. Soðan, biber ve diðer sebzeleri ince doðrayýn (5 dakika).",
+      "3. Bir tavada 2 yemek kaþýðý zeytinyaðýný ýsýtýn (2 dakika).",
+      "4. Doðradýðýnýz tavuklarý ekleyin ve tavuklar iyice piþene kadar soteleyin (10 dakika).",
+      "5. Doðradýðýnýz sebzeleri ekleyin ve karýþtýrýn (5 dakika).",
+      "6. Baharatlarý ekleyin (tuz, karabiber, kekik) ve karýþtýrarak 5-10 dakika daha piþirin."
+    ]
+  },
+  {
+    "RecipeID": 2,
+    "RecipeName": "Fýrýnda Köfte",
+    "Category": "Ana Yemek",
+    "PreparationTime": 45,
+    "Instructions": [
+      "1. Kýyma, tuz, karabiber, kimyon ve diðer baharatlarý bir kapta iyice yoðurun (5 dakika).",
+      "2. Karýþýmdan ceviz büyüklüðünde köfteler yapýn (10 dakika).",
+      "3. Fýrýný 180°C (356°F) sýcaklýða ayarlayýn ve ýsýnmasýný bekleyin (5 dakika).",
+      "4. Köfteleri yaðlý kaðýt serili fýrýn tepsisine dizin (5 dakika).",
+      "5. Fýrýna verin ve 30 dakika piþirin."
+    ]
+  },
+  {
+    "RecipeID": 3,
+    "RecipeName": "Karnýyarýk",
+    "Category": "Ana Yemek",
+    "PreparationTime": 60,
+    "Instructions": [
+      "1. Patlýcanlarý yýkayýn ve ortadan ikiye kesin (5 dakika).",
+      "2. Kýzartma tavasýnda 1-2 yemek kaþýðý yað ýsýtýn ve patlýcanlarý her iki tarafýný altýn rengi alana kadar kýzartýn (10 dakika).",
+      "3. Ýç harcý için kýymayý, soðaný, domatesi, biberi ve baharatlarý karýþtýrýn (10 dakika).",
+      "4. Kýzarttýðýnýz patlýcanlarýn içini çýkarýp hazýrladýðýnýz harcý doldurun (10 dakika).",
+      "5. Hazýrladýðýnýz karnýyarýklarý fýrýn tepsisine yerleþtirin ve üzerine domates dilimleri koyun (5 dakika).",
+      "6. Önceden ýsýtýlmýþ fýrýnda 180°C’de 30 dakika piþirin."
+    ]
+  },
+  {
+    "RecipeID": 4,
+    "RecipeName": "Sebzeli Makarna",
+    "Category": "Ana Yemek",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. Makarnayý bir tencerede tuzlu suda haþlayýn (10 dakika).",
+      "2. Sebzeleri (havuç, brokoli, kabak) küçük parçalar halinde doðrayýn (5 dakika).",
+      "3. Ayrý bir tavada 2 yemek kaþýðý zeytinyaðýný ýsýtýn ve doðranmýþ sebzeleri ekleyin (5 dakika).",
+      "4. Sebzeler yumuþayana kadar soteleyin (5 dakika).",
+      "5. Haþlanan makarnayý süzün ve sebzelerle karýþtýrarak servis edin (5 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 5,
+    "RecipeName": "Fýrýnda Tavuk",
+    "Category": "Ana Yemek",
+    "PreparationTime": 50,
+    "Instructions": [
+      "1. Tavuklarý yýkayýn ve kaðýt havluyla kurulayýn (5 dakika).",
+      "2. Bir kapta zeytinyaðý, tuz, karabiber ve baharatlarý karýþtýrýn (5 dakika).",
+      "3. Tavuklarý hazýrladýðýnýz karýþýma bulayýn ve 15-20 dakika dinlendirin (20 dakika).",
+      "4. Fýrýn tepsisini yaðlayýn ve tavuklarý yerleþtirin (5 dakika).",
+      "5. Önceden ýsýtýlmýþ fýrýnda 200°C’de tavuklarý altýn rengi alana kadar piþirin (15 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 6,
+    "RecipeName": "Etli Kuru Fasulye",
+    "Category": "Ana Yemek",
+    "PreparationTime": 90,
+    "Instructions": [
+      "1. Kuru fasulyeleri bir gece önceden suya koyarak bekletin (en az 8 saat).",
+      "2. Ertesi gün, fasulyeleri süzün ve taze suyla haþlayýn (15 dakika).",
+      "3. Ayrý bir tencerede soðaný doðrayýn ve 2 yemek kaþýðý zeytinyaðýnda kavurun (5 dakika).",
+      "4. Kýymayý ekleyin ve piþene kadar kavurun (10 dakika).",
+      "5. Haþlanmýþ fasulyeleri kýyma karýþýmýna ekleyin ve baharatlarý ekleyin (5 dakika).",
+      "6. 2-3 su bardaðý su ekleyin, kaynamaya býrakýn ve ardýndan kýsýk ateþte 45 dakika piþirin."
+    ]
+  },
+  {
+    "RecipeID": 7,
+    "RecipeName": "Izgara Levrek",
+    "Category": "Ana Yemek",
+    "PreparationTime": 35,
+    "Instructions": [
+      "1. Levrek balýðýný temizleyin ve yýkayýn (5 dakika).",
+      "2. Bir kapta zeytinyaðý, tuz, karabiber ve limon suyu ile marine edin (10 dakika).",
+      "3. Izgarayý ýsýtýn (5 dakika).",
+      "4. Marine edilmiþ levrekleri ýzgaraya yerleþtirin ve her iki tarafýný da 5-7 dakika piþirin."
+    ]
+  },
+  {
+    "RecipeID": 8,
+    "RecipeName": "Lahana Sarmasý",
+    "Category": "Ana Yemek",
+    "PreparationTime": 70,
+    "Instructions": [
+      "1. Lahanayý kaynar suda 5-7 dakika haþlayýn (5 dakika).",
+      "2. Ýç harcý hazýrlamak için kýyma, pirinç, soðan ve baharatlarý karýþtýrýn (10 dakika).",
+      "3. Haþlanmýþ lahana yapraklarýný alýn ve iç harcý ile doldurun (20 dakika).",
+      "4. Sarma iþlemi tamamlandýðýnda, sarma tenceresine yerleþtirin ve üzerini kaplayacak kadar su ekleyin (5 dakika).",
+      "5. Kýsýk ateþte yaklaþýk 30 dakika piþirin."
+    ]
+  },
+  {
+    "RecipeID": 9,
+    "RecipeName": "Tavuklu Pilav",
+    "Category": "Ana Yemek",
+    "PreparationTime": 45,
+    "Instructions": [
+      "1. Tavuk göðsünü küçük parçalara kesin ve tuz ile baharatlarla marine edin (10 dakika).",
+      "2. Bir tencerede 1 yemek kaþýðý zeytinyaðýný ýsýtýn ve tavuklarý ekleyin (5 dakika).",
+      "3. Tavuklar piþince 2 su bardaðý su ekleyin ve kaynamaya býrakýn (10 dakika).",
+      "4. Kaynayan suya 1 su bardaðý pirinci ekleyin ve karýþtýrýn (2 dakika).",
+      "5. Kýsýk ateþte pirinç suyu çekene kadar piþirin (15-20 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 10,
+    "RecipeName": "Mantý",
+    "Category": "Ana Yemek",
+    "PreparationTime": 80,
+    "Instructions": [
+      "1. Hamuru hazýrlamak için un, su, tuz ve yumurtayý karýþtýrýn ve yoðurun (10 dakika).",
+      "2. Hamuru açýn ve küçük kareler kesin (10 dakika).",
+      "3. Kýyma, soðan ve baharatlarý bir kapta karýþtýrýn (5 dakika).",
+      "4. Hamur karelerinin ortasýna kýymalý harcý koyun ve kapatýn (10 dakika).",
+      "5. Bir tencerede su kaynatýn, mantýlarý ekleyin ve piþirin (15 dakika).",
+      "6. Piþen mantýlarý süzün ve üzerine yoðurt ve sos ile servis edin."
+    ]
+  },
+  {
+    "RecipeID": 11,
+    "RecipeName": "Revani",
+    "Category": "Tatl?",
+    "PreparationTime": 40,
+    "Instructions": [
+      "1. Revani hamuru için bir kapta 3 adet yumurta ve 1 su bardaðý þekeri çýrpýn (5 dakika).",
+      "2. Üzerine 1 su bardaðý yoðurt ve 1/2 su bardaðý sývý yað ekleyin ve karýþtýrýn (5 dakika).",
+      "3. Karýþýma 1,5 su bardaðý un ve 1 paket kabartma tozu ekleyin ve iyice karýþtýrýn (5 dakika).",
+      "4. Karýþýmý yaðlanmýþ fýrýn kabýna dökün ve önceden ýsýtýlmýþ 180°C fýrýnda yaklaþýk 25-30 dakika piþirin (30 dakika).",
+      "5. Revani piþtikten sonra üzerine þerbeti dökün ve dinlendirin (10 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 12,
+    "RecipeName": "Sütlaç",
+    "Category": "Tatl?",
+    "PreparationTime": 50,
+    "Instructions": [
+      "1. 1 su bardaðý pirinci 2 su bardaðý su ile haþlayýn (10 dakika).",
+      "2. Pirinçler yumuþadýktan sonra üzerine 4 su bardaðý süt ekleyin ve kaynamaya býrakýn (10 dakika).",
+      "3. Kaynadýktan sonra 1/2 su bardaðý þeker ve 1 tatlý kaþýðý vanilya ekleyin (5 dakika).",
+      "4. Karýþýmý 15-20 dakika daha piþirin, ara sýra karýþtýrmayý unutmayýn (20 dakika).",
+      "5. Servis kaselerine alýp üzerine tarçýn serpin ve soðutun (5 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 13,
+    "RecipeName": "Kazandibi",
+    "Category": "Tatl?",
+    "PreparationTime": 45,
+    "Instructions": [
+      "1. 1 litre süt, 1 su bardaðý þeker ve 1/2 su bardaðý un ile bir tencerede karýþtýrýn (5 dakika).",
+      "2. Karýþýmý sürekli karýþtýrarak piþirin, koyulaþana kadar ocakta tutun (15 dakika).",
+      "3. Piþtikten sonra karýþýmý bir tepsiye dökün ve düzleþtirin (5 dakika).",
+      "4. Tepsiyi ocakta kýsýk ateþte 10-15 dakika piþirin, altý hafif yanana kadar (10 dakika).",
+      "5. Soðuyunca dilimleyip servis edin (10 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 14,
+    "RecipeName": "Baklava",
+    "Category": "Tatl?",
+    "PreparationTime": 90,
+    "Instructions": [
+      "1. 1 paket yufkayý açýn ve arasýna 100 gr eritilmiþ tereyaðý sürün (15 dakika).",
+      "2. Yufkalarýn yarýsýný tepsiye serin ve aralarýna ceviz serpiþtirin (20 dakika).",
+      "3. Kalan yufkalarý da üstüne yerleþtirin, her katýna tereyaðý sürün (15 dakika).",
+      "4. Baklavayý dilimleyin ve önceden ýsýtýlmýþ 180°C fýrýnda 30-35 dakika piþirin (30 dakika).",
+      "5. Fýrýndan çýktýktan sonra sýcak þerbeti üzerine dökün (10 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 15,
+    "RecipeName": "Þekerpare",
+    "Category": "Tatl?",
+    "PreparationTime": 60,
+    "Instructions": [
+      "1. 125 gr tereyaðýný bir kapta eritin ve üzerine 1 su bardaðý yoðurt ekleyin (5 dakika).",
+      "2. Karýþýma 1 su bardaðý þeker ve 1 yumurta ekleyin, iyice çýrpýn (5 dakika).",
+      "3. 3 su bardaðý un ve 1 paket kabartma tozu ekleyerek yoðurun (10 dakika).",
+      "4. Hamurdan ceviz büyüklüðünde parçalar koparýp yuvarlayýn ve tepsiye dizin (10 dakika).",
+      "5. Önceden ýsýtýlmýþ 180°C fýrýnda 25-30 dakika piþirin (30 dakika).",
+      "6. Fýrýndan çýktýktan sonra þerbet dökün ve soðumaya býrakýn (10 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 16,
+    "RecipeName": "Tiramisu",
+    "Category": "Tatl?",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 3 adet yumurtanýn sarýsýný 100 gr þeker ile çýrpýn (5 dakika).",
+      "2. Üzerine 250 gr mascarpone peynirini ekleyin ve karýþtýrýn (5 dakika).",
+      "3. 1 fincan kahveyi soðutun ve kedi dili bisküvilerini bu kahve ile ýslatýn (5 dakika).",
+      "4. Islatýlan bisküvileri bir kabýn tabanýna dizin (5 dakika).",
+      "5. Üzerine mascarpone karýþýmýný dökün ve bir kat daha bisküvi dizip üzerine karýþýmý koyun (10 dakika).",
+      "6. Buzdolabýnda en az 4 saat dinlendirin (5 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 17,
+    "RecipeName": "Mozaik Pasta",
+    "Category": "Tatl?",
+    "PreparationTime": 20,
+    "Instructions": [
+      "1. 1 paket bisküviyi ufalayýn (5 dakika).",
+      "2. Bir kapta 100 gr kakao ve 100 gr eritilmiþ tereyaðýný karýþtýrýn (5 dakika).",
+      "3. Karýþýma ufalanmýþ bisküvileri ekleyin ve karýþtýrýn (5 dakika).",
+      "4. Karýþýmý streç filme sararak silindirik bir þekil verin (5 dakika).",
+      "5. Buzdolabýnda en az 2 saat bekletin (5 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 18,
+    "RecipeName": "Krem Karamel",
+    "Category": "Tatl?",
+    "PreparationTime": 60,
+    "Instructions": [
+      "1. 1 su bardaðý þeker ile bir tavada karamel yapýn (10 dakika).",
+      "2. Karamele 1 litre süt ekleyin ve karýþtýrarak kaynatýn (10 dakika).",
+      "3. Baþka bir kapta 4 adet yumurtayý çýrpýn ve þekerli sütü yavaþça ekleyin (5 dakika).",
+      "4. Karýþýmý küçük kaplara dökün ve üzerini alüminyum folyo ile kapatýn (5 dakika).",
+      "5. Kaplarý derin bir tepsiye yerleþtirip, tepsinin içine su ekleyin (5 dakika).",
+      "6. Önceden ýsýtýlmýþ 160°C fýrýnda 30-35 dakika piþirin (15 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 19,
+    "RecipeName": "Profiterol",
+    "Category": "Tatl?",
+    "PreparationTime": 90,
+    "Instructions": [
+      "1. 1 su bardaðý su, 1/2 su bardaðý tereyaðý ve bir tutam tuzu bir tencerede kaynatýn (5 dakika).",
+      "2. Kaynadýktan sonra 1 su bardaðý unu ekleyin ve karýþtýrarak hamur haline getirin (10 dakika).",
+      "3. Hamuru ocaktan alýn, 3 yumurtayý teker teker ekleyerek karýþtýrýn (10 dakika).",
+      "4. Hamurdan ceviz büyüklüðünde parçalar koparýp yaðlý kaðýt serili tepsiye dizin (10 dakika).",
+      "5. Önceden ýsýtýlmýþ 200°C fýrýnda 20-25 dakika piþirin (25 dakika).",
+      "6. Piþen profiterolleri soðutun, içlerini krema ile doldurun ve üzerine çikolata sos dökün (15 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 20,
+    "RecipeName": "Aþure",
+    "Category": "Tatl?",
+    "PreparationTime": 120,
+    "Instructions": [
+      "1. 1 su bardaðý nohut, 1 su bardaðý fasulye ve 1 su bardaðý buðdayý bir gece önceden ýslatýn (8 saat).",
+      "2. Ertesi gün nohut, fasulye ve buðdayý ayrý ayrý haþlayýn (30 dakika).",
+      "3. Haþlanan malzemeleri büyük bir tencereye alýn ve üzerine 6 su bardaðý su ekleyin (5 dakika).",
+      "4. 1 su bardaðý þeker ve isteðe baðlý olarak 1 tatlý kaþýðý tarçýn ekleyin (5 dakika).",
+      "5. Karýþýmý kaynamaya býrakýn ve kaynadýktan sonra 20-30 dakika daha piþirin (20 dakika).",
+      "6. Piþtikten sonra kaselere dökün ve üzerine isteðe baðlý olarak ceviz, nar taneleri veya tarçýn serpin (15 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 21,
+    "RecipeName": "Haydari",
+    "Category": "Meze",
+    "PreparationTime": 15,
+    "Instructions": [
+      "1. 1 su bardaðý yoðurdu bir kaseye alýn (1 dakika).",
+      "2. Üzerine 2 diþ ezilmiþ sarýmsak ekleyin (2 dakika).",
+      "3. 1/4 su bardaðý ince doðranmýþ dereotu ekleyin (1 dakika).",
+      "4. 2 yemek kaþýðý zeytinyaðý ve tuz ekleyin, iyice karýþtýrýn (2 dakika).",
+      "5. Karýþýmý servis tabaðýna alýn ve üzerine zeytinyaðý gezdirerek servis yapýn (2 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 22,
+    "RecipeName": "Acýlý Ezme",
+    "Category": "Meze",
+    "PreparationTime": 20,
+    "Instructions": [
+      "1. 2 adet domatesi ve 1 adet biberi ince doðrayýn (5 dakika).",
+      "2. 1 adet soðaný da ince ince doðrayýn (3 dakika).",
+      "3. Doðranmýþ sebzeleri bir kasede birleþtirin (2 dakika).",
+      "4. Üzerine 1 yemek kaþýðý nar ekþisi, 1 tatlý kaþýðý pul biber ve tuz ekleyin (2 dakika).",
+      "5. Karýþýmý iyice harmanlayýn ve servis yapmadan önce 10 dakika dinlendirin (10 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 23,
+    "RecipeName": "Kýsýr",
+    "Category": "Meze",
+    "PreparationTime": 25,
+    "Instructions": [
+      "1. 1 su bardaðý ince bulguru sýcak su ile ýslatýn ve þiþmesi için 10 dakika bekletin (10 dakika).",
+      "2. Bulgur þiþtikten sonra 1/4 su bardaðý nar ekþisi, 1/2 su bardaðý zeytinyaðý, 1 tatlý kaþýðý tuz ve 1 tatlý kaþýðý pul biber ekleyin (5 dakika).",
+      "3. 2 adet domatesi, 1/2 demet maydanozu ve 2 dal yeþil soðaný ince ince doðrayýn (5 dakika).",
+      "4. Tüm malzemeleri bir kapta birleþtirin ve iyice karýþtýrýn (5 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 24,
+    "RecipeName": "Patlýcan Salatasý",
+    "Category": "Meze",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 2 adet patlýcaný közleyin, kabuklarýný soyun ve ince doðrayýn (10 dakika).",
+      "2. Doðranmýþ patlýcanlarý bir kaseye alýn (1 dakika).",
+      "3. Üzerine 2 yemek kaþýðý zeytinyaðý, 1 tatlý kaþýðý limon suyu ve tuz ekleyin (2 dakika).",
+      "4. 1 diþ sarýmsaðý ince doðrayýn ve karýþýma ekleyin (1 dakika).",
+      "5. Tüm malzemeleri iyice karýþtýrýn ve servis yapýn (15 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 25,
+    "RecipeName": "Humus",
+    "Category": "Meze",
+    "PreparationTime": 20,
+    "Instructions": [
+      "1. 1 su bardaðý haþlanmýþ nohut, 2 yemek kaþýðý tahin, 1 diþ sarýmsak, 2 yemek kaþýðý limon suyu ve 2 yemek kaþýðý zeytinyaðýný bir mutfak robotuna alýn (5 dakika).",
+      "2. Malzemeleri püre haline gelene kadar karýþtýrýn (5 dakika).",
+      "3. Karýþýma tuz ekleyin ve tekrar karýþtýrýn (2 dakika).",
+      "4. Hazýrladýðýnýz humusu bir servis tabaðýna alýn ve üzerine zeytinyaðý gezdirin (5 dakika).",
+      "5. Ýsteðe baðlý olarak üzerine pul biber veya sumak serpin (3 dakika)."
+    ]
+  },
+  {
+    "RecipeID": 26,
+    "RecipeName": "Çerkes Tavuðu",
+    "Category": "Meze",
+    "PreparationTime": 50,
+    "Instructions": [
+      "1. Tavuk göðsünü büyük bir tencereye alýn ve üzerini geçecek kadar su ekleyin.",
+      "2. Tencereye 1 adet defne yapraðý ve 1 adet soðan ekleyip tavuðu yumuþayana kadar yaklaþýk 30-40 dakika haþlayýn.",
+      "3. Tavuk piþtikten sonra sudan çýkarýn ve soðumaya býrakýn. Tavuk suyunu saklayýn.",
+      "4. Soðuyan tavuðu ince ince didikleyin.",
+      "5. Bir tavada 1 su bardaðý ceviz içini rondoda çekip hafifçe kavurun. Ýçine 2 diþ sarýmsak ekleyin.",
+      "6. Ceviz karýþýmýna 2 dilim bayat ekmeði ufalayýn ve tavuk suyu ekleyerek sos kývamýna getirin.",
+      "7. Didiklenmiþ tavuklarý cevizli sosla karýþtýrýn ve bir servis tabaðýna alýn.",
+      "8. Üzerine kýrmýzý toz biberle süslenmiþ eritilmiþ tereyaðýný dökün ve servis edin."
+    ]
+  },
+  {
+    "RecipeID": 27,
+    "RecipeName": "Babagannuþ",
+    "Category": "Meze",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 3 adet patlýcaný ocakta veya fýrýnda közleyin. Patlýcanlarýn kabuklarýný soyup ince ince doðrayýn veya ezin.",
+      "2. Közlenmiþ patlýcanlarý geniþ bir kaba alýn.",
+      "3. 1 su bardaðý yoðurdu, 2 diþ rendelenmiþ sarýmsaðý, 2 yemek kaþýðý zeytinyaðýný ve tuz, karabiber gibi baharatlarý ekleyin.",
+      "4. Malzemeleri iyice karýþtýrýn.",
+      "5. Servis tabaðýna aldýktan sonra üzerine zeytinyaðý gezdirip kýrmýzý toz biberle süsleyerek servis edin."
+    ]
+  },
+  {
+    "RecipeID": 28,
+    "RecipeName": "Muhammara",
+    "Category": "Meze",
+    "PreparationTime": 20,
+    "Instructions": [
+      "1. Bir kapta 2 yemek kaþýðý biber salçasý, 1 su bardaðý ceviz içi, 1 çay bardaðý zeytinyaðý, 1 dilim bayat ekmek içi, 1 diþ ezilmiþ sarýmsak, tuz, karabiber, kimyon ve pul biberi karýþtýrýn.",
+      "2. Malzemeleri iyice karýþtýrarak püre kývamýna getirin. Gerekirse karýþýmý daha yumuþatmak için biraz daha zeytinyaðý ekleyin.",
+      "3. Hazýrladýðýnýz muhammarayý servis tabaðýna alýn.",
+      "4. Üzerine biraz daha zeytinyaðý gezdirip ceviz içi ile süsleyin ve servis edin."
+    ]
+  },
+  {
+    "RecipeID": 29,
+    "RecipeName": "Atom",
+    "Category": "Meze",
+    "PreparationTime": 10,
+    "Instructions": [
+      "1. 1 su bardaðý yoðurdu geniþ bir kaba alýn.",
+      "2. Ayrý bir tavada 2 yemek kaþýðý zeytinyaðýný ýsýtýn. Ýçine 1 çay kaþýðý pul biber ekleyin ve biberler hafifçe kýzarana kadar kýsýk ateþte kavurun.",
+      "3. Yoðurdu servis tabaðýna alýn ve üzerine hazýrladýðýnýz kýzgýn biberli zeytinyaðýný gezdirin.",
+      "4. Hemen servis edin."
+    ]
+  },
+  {
+    "RecipeID": 30,
+    "RecipeName": "Fava",
+    "Category": "Meze",
+    "PreparationTime": 60,
+    "Instructions": [
+      "1. 2 su bardaðý kuru baklayý bol suyla yýkayýp bir gece önceden suda bekletin.",
+      "2. Ertesi gün baklalarý süzüp bir tencereye alýn. Üzerine 4 su bardaðý su ekleyin ve kýsýk ateþte piþirin.",
+      "3. Baklalar iyice yumuþadýktan sonra blenderdan geçirerek püre haline getirin.",
+      "4. Ýçine 2 yemek kaþýðý zeytinyaðý, yarým limon suyu, tuz ve karabiber ekleyip iyice karýþtýrýn.",
+      "5. Karýþýmý bir kaba döküp üzerini düzleyin ve soðumaya býrakýn. Soðuyunca dilimleyerek servis edin."
+    ]
+  },
+  {
+    "RecipeID": 31,
+    "RecipeName": "Sigara Böreði",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 25,
+    "Instructions": [
+      "1. 3 adet yufkayý alýn ve her bir yufkayý ince þeritler halinde kesin.",
+      "2. Ýç harcý için 200 gram beyaz peyniri bir kapta çatalla ezin. Ýçine ince kýyýlmýþ maydanoz ekleyin.",
+      "3. Kestiðiniz yufka þeritlerinin bir ucuna peynirli harçtan koyun ve sýkýca sarýn.",
+      "4. Böreklerin uçlarýný suyla yapýþtýrýn.",
+      "5. Bir tavada bol yaðý ýsýtýn ve börekleri altýn sarýsý olana kadar kýzartýn.",
+      "6. Kýzaran börekleri kaðýt havlu serili tabaða alarak fazla yaðýný süzdürün ve sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 32,
+    "RecipeName": "Mücver",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 2 adet kabaðý rendeleyin ve fazla suyunu sýkýn.",
+      "2. Kabaklarýn üzerine 1 adet rendelenmiþ havuç, 2 adet yumurta, 3 yemek kaþýðý un, 1 tutam ince kýyýlmýþ dereotu, tuz ve karabiber ekleyin.",
+      "3. Karýþýmý iyice karýþtýrýn.",
+      "4. Bir tavada biraz yaðý ýsýtýn ve karýþýmdan kaþýkla alýp tavaya dökün.",
+      "5. Her iki tarafýný da altýn sarýsý olana kadar kýzartýn.",
+      "6. Kýzaran mücverleri kaðýt havlu üzerine alarak fazla yaðýný süzdürün ve sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 33,
+    "RecipeName": "Patates Kroket",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 35,
+    "Instructions": [
+      "1. 4 adet haþlanmýþ patatesi ezerek püre haline getirin.",
+      "2. Püreye 2 yemek kaþýðý un, 1 adet yumurta, tuz, karabiber ve muskat rendesi ekleyin. Ýyice karýþtýrýn.",
+      "3. Patates harcýndan küçük toplar yapýn.",
+      "4. Hazýrladýðýnýz toplarý önce çýrpýlmýþ yumurtaya, ardýndan galeta ununa bulayýn.",
+      "5. Bir tavada bol yaðý ýsýtýn ve kroketleri altýn sarýsý olana kadar kýzartýn.",
+      "6. Kýzaran kroketleri kaðýt havlu üzerine alýn ve sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 34,
+    "RecipeName": "Peynirli Poðaça",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 40,
+    "Instructions": [
+      "1. Bir karýþtýrma kabýna 1 su bardaðý yoðurt, 1 çay bardaðý sývý yað, 1 adet yumurta ve 1 paket kabartma tozu ekleyin. Karýþýmý iyice çýrpýn.",
+      "2. Yavaþ yavaþ 3-4 su bardaðý unu ekleyip yumuþak bir hamur elde edin.",
+      "3. Ýç harcý için 200 gram beyaz peyniri ezin ve ince kýyýlmýþ maydanozla karýþtýrýn.",
+      "4. Hamurdan ceviz büyüklüðünde parçalar koparýp elinizle açýn ve içine peynirli harçtan koyup kapatýn.",
+      "5. Poðaçalarý yaðlý kaðýt serili tepsiye dizin. Üzerine çýrpýlmýþ yumurta sürüp susam serpin.",
+      "6. Önceden ýsýtýlmýþ 180 derece fýrýnda yaklaþýk 25-30 dakika, üzeri kýzarana kadar piþirin.",
+      "7. Fýrýndan çýkardýðýnýz poðaçalarý ýlýdýktan sonra servis edin."
+    ]
+  },
+  {
+    "RecipeID": 35,
+    "RecipeName": "Simit",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 50,
+    "Instructions": [
+      "1. Bir kapta 1 su bardaðý ýlýk su, 1 tatlý kaþýðý þeker ve 1 yemek kaþýðý kuru mayayý karýþtýrýn. Maya kabarana kadar yaklaþýk 10 dakika bekleyin.",
+      "2. Baþka bir kapta 4 su bardaðý unu, 1 çay kaþýðý tuzu ekleyin. Maya karýþýmýný ekleyip yumuþak bir hamur yoðurun.",
+      "3. Hamurun üzerini örtüp yaklaþýk 1 saat mayalanmaya býrakýn.",
+      "4. Hamur mayalandýktan sonra küçük bezeler yapýn ve her bezeyi uzun þeritler halinde yuvarlayýn. Þeritleri birbirine dolayarak simit þeklinde birleþtirin.",
+      "5. Simitleri önce pekmezli suya batýrýn, ardýndan bol susama bulayýn.",
+      "6. Yaðlý kaðýt serili fýrýn tepsisine simitleri dizin ve önceden ýsýtýlmýþ 200 derece fýrýnda yaklaþýk 20-25 dakika, altýn sarýsý olana kadar piþirin.",
+      "7. Fýrýndan çýkardýktan sonra ýlýkken servis edin."
+    ]
+  },
+  {
+    "RecipeID": 36,
+    "RecipeName": "Çýtýr Tavuk",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 500 gram tavuk göðsünü ince þeritler halinde doðrayýn.",
+      "2. Bir kapta 1 su bardaðý un, 1 çay kaþýðý tuz, 1 çay kaþýðý karabiber ve 1 çay kaþýðý kýrmýzý toz biberi karýþtýrýn.",
+      "3. Tavuk þeritlerini önce una bulayýn, ardýndan çýrpýlmýþ yumurtaya ve son olarak galeta ununa batýrýn.",
+      "4. Bir tavada bol yaðý ýsýtýn ve tavuklarý altýn sarýsý olana kadar kýzartýn.",
+      "5. Kýzaran tavuklarý kaðýt havlu serili tabaða alýn ve fazla yaðýný süzdürün.",
+      "6. Yanýnda dip soslarla sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 37,
+    "RecipeName": "Kumpir",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 60,
+    "Instructions": [
+      "1. 4 büyük boy patatesi iyice yýkayýn ve kabuklu þekilde önceden ýsýtýlmýþ 200 derece fýrýnda yaklaþýk 1 saat piþirin.",
+      "2. Patatesler piþtikten sonra ortadan ikiye bölün ve iç kýsmýný kaþýkla çýkararak bir kaseye alýn.",
+      "3. Çýkardýðýnýz patates içini 100 gram tereyaðý ve 1 su bardaðý rendelenmiþ kaþar peyniri ile karýþtýrýp ezerek püre haline getirin.",
+      "4. Patateslerin içini tekrar doldurun ve üzerine istediðiniz malzemeleri (sosis, mýsýr, turþu, zeytin, salata vb.) ekleyin.",
+      "5. Üzerine isteðe baðlý olarak ketçap, mayonez ve kaþar rendesi ekleyerek sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 38,
+    "RecipeName": "Patatesli Gözleme",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 3 adet patatesi haþlayýn ve püre haline getirin.",
+      "2. Ýçine 1 yemek kaþýðý tereyaðý, tuz, karabiber ve pul biber ekleyip karýþtýrýn.",
+      "3. Yufkayý düz bir zemine serin. Hazýrladýðýnýz patatesli harcý yufkanýn ortasýna yayýn.",
+      "4. Yufkayý dört bir yandan katlayarak kapatýn.",
+      "5. Isýtýlmýþ bir sacda veya tavada her iki tarafýný da altýn sarýsý olana kadar piþirin.",
+      "6. Dilimleyerek sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 39,
+    "RecipeName": "Çikolatalý Kek",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 50,
+    "Instructions": [
+      "1. 3 adet yumurtayý ve 1 su bardaðý toz þekeri mikserle çýrpýn.",
+      "2. 1 su bardaðý süt, 1 su bardaðý sývý yað, 2 su bardaðý un, 1 paket kabartma tozu ve 3 yemek kaþýðý kakao ekleyin. Karýþýmý iyice çýrpýn.",
+      "3. 100 gram bitter çikolatayý benmari usulü eritip hamura ekleyin ve karýþtýrýn.",
+      "4. Kek hamurunu yaðlanmýþ kek kalýbýna dökün.",
+      "5. Önceden ýsýtýlmýþ 180 derece fýrýnda yaklaþýk 40-45 dakika piþirin.",
+      "6. Fýrýndan çýkardýktan sonra soðumaya býrakýn. Soðuduktan sonra dilimleyerek servis edin."
+    ]
+  },
+  {
+    "RecipeID": 40,
+    "RecipeName": "Tavuklu Sandviç",
+    "Category": "Atýþtýrmalýk",
+    "PreparationTime": 20,
+    "Instructions": [
+      "1. 1 adet tavuk göðsünü haþlayýn ve ince ince didikleyin.",
+      "2. Sandviç ekmeðini ortadan ikiye bölün ve içine tavuklarý yerleþtirin.",
+      "3. Üzerine istediðiniz yeþillikleri (marul, roka vb.) ekleyin.",
+      "4. Ýsteðe baðlý olarak mayonez, hardal veya ketçap ekleyerek sandviçi kapatýn.",
+      "5. Sandviçi dilimleyerek servis edin."
+    ]
+  },
+  {
+    "RecipeID": 41,
+    "RecipeName": "Mercimek Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 2 su bardaðý kýrmýzý mercimeði bol suyla yýkayýn.",
+      "2. Tencereye 1 adet doðranmýþ soðan, 1 adet doðranmýþ havuç ve 1 yemek kaþýðý zeytinyaðý ekleyin. Soðanlarý hafif pembeleþene kadar kavurun.",
+      "3. Üzerine yýkanmýþ mercimekleri ve 5 su bardaðý su ekleyin. Mercimekler yumuþayana kadar orta ateþte piþirin.",
+      "4. Piþen çorbayý blenderdan geçirerek pürüzsüz bir kývam elde edin.",
+      "5. Üzerine tereyaðýnda kýzdýrýlmýþ kýrmýzý toz biber sosu dökün ve sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 42,
+    "RecipeName": "Yayla Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 25,
+    "Instructions": [
+      "1. 1 su bardaðý yoðurdu geniþ bir kaba alýn ve çýrpýn.",
+      "2. Ayrý bir tencerede 1 su bardaðý yýkanmýþ pirinci 5 su bardaðý su ile haþlayýn.",
+      "3. Yoðurdu tencereye azar azar ekleyip karýþtýrarak piþirin.",
+      "4. Üzerine 1 yemek kaþýðý tereyaðýnda kýzdýrýlmýþ nane ekleyerek servis edin."
+    ]
+  },
+  {
+    "RecipeID": 43,
+    "RecipeName": "Tarhana Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 20,
+    "Instructions": [
+      "1. 4 yemek kaþýðý tarhana tozunu 1 su bardaðý su ile karýþtýrýp 5 dakika bekletin.",
+      "2. Ayrý bir tencerede 1 yemek kaþýðý tereyaðýný eritin ve 1 yemek kaþýðý domates salçasýný kavurun.",
+      "3. Tarhanayý yavaþça tencereye ekleyip karýþtýrýn ve üzerine 5 su bardaðý su ilave edin.",
+      "4. Çorbayý kýsýk ateþte karýþtýrarak piþirin.",
+      "5. Üzerine tereyaðlý kýrmýzý biberli sos dökerek servis edin."
+    ]
+  },
+  {
+    "RecipeID": 44,
+    "RecipeName": "Ezogelin Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 35,
+    "Instructions": [
+      "1. 1 su bardaðý kýrmýzý mercimek, 1 yemek kaþýðý bulgur ve 1 yemek kaþýðý pirinci bol su ile yýkayýn.",
+      "2. Tencerede 1 adet doðranmýþ soðaný 2 yemek kaþýðý zeytinyaðýnda kavurun.",
+      "3. Üzerine 1 yemek kaþýðý domates salçasý ekleyip karýþtýrýn.",
+      "4. Yýkanmýþ mercimek, bulgur ve pirinci tencereye ekleyin, 6 su bardaðý su ilave edin.",
+      "5. Çorba kaynamaya baþladýktan sonra kýsýk ateþte 25-30 dakika piþirin.",
+      "6. Çorbayý blenderdan geçirip pürüzsüz hale getirin.",
+      "7. Üzerine tereyaðýnda kýzdýrýlmýþ nane ve kýrmýzý biberli sos dökerek sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 45,
+    "RecipeName": "Domates Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. 4 adet domatesi rendeleyin veya mutfak robotunda çekin.",
+      "2. Tencerede 2 yemek kaþýðý tereyaðýný eritin ve üzerine 2 yemek kaþýðý un ekleyip kavurun.",
+      "3. Rendelenmiþ domatesleri ekleyip karýþtýrýn.",
+      "4. 5 su bardaðý su veya tavuk suyu ekleyip çorbayý kýsýk ateþte piþirin.",
+      "5. Çorbayý blenderdan geçirip pürüzsüz hale getirin.",
+      "6. Üzerine rendelenmiþ kaþar peyniri serpiþtirerek sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 46,
+    "RecipeName": "Brokoli Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 25,
+    "Instructions": [
+      "1. 500 gram brokoliyi küçük parçalara ayýrýn ve yýkayýn.",
+      "2. Tencerede 1 adet doðranmýþ soðaný 2 yemek kaþýðý zeytinyaðýnda kavurun.",
+      "3. Brokoliyi tencereye ekleyip üzerine 5 su bardaðý su veya tavuk suyu ilave edin.",
+      "4. Brokoliler yumuþayana kadar piþirin, ardýndan blenderdan geçirerek pürüzsüz hale getirin.",
+      "5. 1 su bardaðý krema ekleyip karýþtýrarak birkaç dakika daha piþirin.",
+      "6. Çorbayý sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 47,
+    "RecipeName": "Sebze Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 30,
+    "Instructions": [
+      "1. Mevsim sebzelerinden (havuç, patates, kabak vb.) 3 adet sebzeyi küçük küpler halinde doðrayýn.",
+      "2. Tencerede 1 yemek kaþýðý zeytinyaðýnda 1 adet doðranmýþ soðaný kavurun.",
+      "3. Üzerine sebzeleri ekleyin ve 5 su bardaðý su veya tavuk suyu ekleyin.",
+      "4. Sebzeler yumuþayana kadar kýsýk ateþte piþirin.",
+      "5. Çorbayý blenderdan geçirerek pürüzsüz hale getirin.",
+      "6. Ýsteðe baðlý olarak krema ekleyin ve birkaç dakika daha piþirin.",
+      "7. Çorbayý sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 48,
+    "RecipeName": "Tavuk Suyu Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 40,
+    "Instructions": [
+      "1. Bir tencereye 1 litre tavuk suyunu koyun ve kaynatýn.",
+      "2. Kaynayan suya 1 çay bardaðý arpa þehriye veya pirinç ekleyin.",
+      "3. Þehriye veya pirinç yumuþayana kadar yaklaþýk 15 dakika kýsýk ateþte piþirin.",
+      "4. Üzerine isteðe baðlý olarak tuz ve karabiber ekleyin.",
+      "5. Çorbayý sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 49,
+    "RecipeName": "Mantar Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 35,
+    "Instructions": [
+      "1. 300 gram mantarý ince dilimler halinde doðrayýn.",
+      "2. Tencerede 2 yemek kaþýðý tereyaðýný eritin ve mantarlarý ekleyerek soteleyin.",
+      "3. Üzerine 2 yemek kaþýðý un ekleyip kavurun.",
+      "4. 5 su bardaðý su veya süt ekleyip çorbayý karýþtýrarak piþirin.",
+      "5. Çorbayý blenderdan geçirip pürüzsüz hale getirin.",
+      "6. 1 su bardaðý krema ekleyerek karýþtýrýn ve birkaç dakika daha piþirin.",
+      "7. Sýcak servis edin."
+    ]
+  },
+  {
+    "RecipeID": 50,
+    "RecipeName": "Balkabaðý Çorbasý",
+    "Category": "Baþlangýç",
+    "PreparationTime": 40,
+    "Instructions": [
+      "1. 500 gram balkabaðýný küp þeklinde doðrayýn ve tencereye alýn.",
+      "2. Üzerine 1 adet doðranmýþ soðan ve 5 su bardaðý su ekleyin.",
+      "3. Balkabaklarý yumuþayana kadar kýsýk ateþte piþirin.",
+      "4. Piþen balkabaklarýný blenderdan geçirip pürüzsüz hale getirin.",
+      "5. 1 su bardaðý krema ekleyin ve birkaç dakika daha piþirin.",
+      "6. Tuz ve karabiber ekleyip karýþtýrarak sýcak servis edin."
+    ]
+  }
+]
+  
+  
+
+
