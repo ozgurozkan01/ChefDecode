@@ -11,8 +11,18 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 
 public class MainApplication extends Application {
+    DataBaseManager dataBaseManager = new DataBaseManager();
+
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException
+    {
+/*
+        dataBaseManager.getRecipeByID(1);
+
+        dataBaseManager.updateRecipe(1, "RecipeName", "asdfafg");
+
+        dataBaseManager.getRecipeByID(1);
+*/
         Pane root = new Pane();
 
         int windowHeight = 800;
@@ -151,6 +161,8 @@ public class MainApplication extends Application {
         stage.setTitle("Chef Decode");
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {
