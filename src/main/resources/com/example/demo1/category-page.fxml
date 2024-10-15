@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="850.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.CategoryPageController">
+   <children>
+      <HBox layoutY="196.0" prefHeight="655.0" prefWidth="336.0" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="656.0" stroke="BLACK" strokeType="INSIDE" width="335.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="374.0" layoutY="196.0" prefHeight="655.0" prefWidth="847.0">
+         <children>
+            <ScrollPane fx:id="scroll" hbarPolicy="NEVER" prefHeight="655.0" prefWidth="848.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <content>
+                  <GridPane fx:id="grid" prefHeight="105.0" prefWidth="94.0">
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+      <HBox layoutX="-3.0" layoutY="-1.0" prefHeight="137.0" prefWidth="1250.0">
+         <fx:include source="main-top-bar.fxml" />
+      </HBox>
+   </children>
+</AnchorPane>
