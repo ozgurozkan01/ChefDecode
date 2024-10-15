@@ -1,0 +1,65 @@
+.search-box
+{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 50;
+}
+
+.transparent
+{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.search-button
+{
+    -fx-background-color: #828282;
+    -fx-background-radius: 30;
+}
+
+.top-bar
+{
+    -fx-background-color: #FF8800;
+}
+
+.shadow
+{
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.3), 10.0, 0.0, 0.0, 10.0);
+}
+
+.line
+{
+    -fx-background-color: #FF8800;
+}
+
+.category-button-middle
+{
+    -fx-background-color: #EE4D4D;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+
+.category-button-right
+{
+    -fx-background-color: #EE4D4D;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-background-radius:0 20 20 0;
+    -fx-text-fill: white;
+}
+
+.category-button-left
+{
+    -fx-background-color: #EE4D4D;
+    -fx-font-size: 20px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-background-radius:20 0 0 20;
+    -fx-text-fill: white;
+}
+
+.image-corner
+{
+    -fx-background-radius:20;
+}
