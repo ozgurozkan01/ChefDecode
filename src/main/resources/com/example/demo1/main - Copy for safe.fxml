@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,12 +16,56 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1250.0"
-            xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
    <children>
       <VBox prefHeight="850.0" prefWidth="1250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane prefHeight="210.0" prefWidth="1250.0">
+            <BorderPane prefHeight="200.0" prefWidth="817.0">
+               <top>
+                  <HBox prefHeight="91.0" prefWidth="1250.0" styleClass="top-bar" stylesheets="@style.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="91.0" prefWidth="405.0" text="ChefDecode">
+                           <font>
+                              <Font name="Cambria" size="40.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="32.0" prefWidth="485.0" stylesheets="@style.css">
+                           <children>
+                              <TextField opacity="0.5" prefHeight="25.0" prefWidth="409.0" styleClass="transparent" stylesheets="@style.css" text="Search Recipe">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" styleClass="search-button" stylesheets="@style.css" text="🔍" />
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="25.0" top="25.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="search-box" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="91.0" prefWidth="381.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Saved" translateX="-60.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <Button alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="43.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="165.0" styleClass="transparent" stylesheets="@style.css" text="Add Recipe">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Cambria" size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </top>
                <bottom>
                   <HBox alignment="CENTER" prefHeight="126.0" prefWidth="1250.0" BorderPane.alignment="CENTER">
                      <children>
@@ -70,11 +116,6 @@
                      </children>
                   </HBox>
                </bottom>
-               <top>
-                  <HBox fx:id="includeHeader" prefHeight="108.0" prefWidth="1250.0" BorderPane.alignment="CENTER">
-                     <fx:include source="main-top-bar.fxml" />
-                  </HBox>
-               </top>
             </BorderPane>
             <HBox prefHeight="634.0" prefWidth="1250.0">
                <children>
@@ -96,7 +137,11 @@
                         <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
                      </HBox.margin>
                      <content>
-                        <GridPane fx:id="recipesGrid" prefHeight="0.0" prefWidth="0.0">
+                        <GridPane fx:id="recipesGrid" prefHeight="80" prefWidth="80">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="333.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="333.0" prefWidth="100.0" />
+                          </columnConstraints>
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" />

@@ -6,7 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +18,8 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable
 {
+    @FXML
+    private HBox includeHeader;
     @FXML
     private ScrollPane menusScrollPane;
     @FXML
@@ -66,6 +70,11 @@ public class MainController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        if (recipesGrid == null) {
+            System.out.println("recipesGrid is null");
+            return;
+        }
+
         recipes.addAll(getRecipesData());
         mainMostLikedRecipes.addAll(getMainMostLikedRecipeData());
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="89.0" prefWidth="1250.0"
+            xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.TopBarController">
+   <children>
+      <HBox prefHeight="91.0" prefWidth="1250.0" styleClass="top-bar" stylesheets="@style.css">
+         <children>
+            <Label alignment="CENTER" prefHeight="91.0" prefWidth="405.0" text="ChefDecode">
+               <font>
+                  <Font name="Cambria" size="40.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="485.0" stylesheets="@style.css">
+               <children>
+                  <TextField opacity="0.5" prefHeight="25.0" prefWidth="409.0" styleClass="transparent" stylesheets="@style.css" text="Search Recipe">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" styleClass="search-button" stylesheets="@style.css" text="🔍" />
+               </children>
+               <HBox.margin>
+                  <Insets bottom="25.0" top="25.0" />
+               </HBox.margin>
+               <styleClass>
+                  <String fx:value="search-box" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="91.0" prefWidth="381.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Saved" translateX="-60.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="43.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="165.0" styleClass="transparent" stylesheets="@style.css" text="Add Recipe">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
