@@ -14,8 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0"
-            prefWidth="1250.0" xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
    <children>
       <VBox prefHeight="850.0" prefWidth="1250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -23,7 +22,7 @@
                <bottom>
                   <HBox alignment="CENTER" prefHeight="126.0" prefWidth="1250.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefWidth="125.0" styleClass="category-button-left" stylesheets="@style.css" text="Category">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToCategory" prefWidth="125.0" styleClass="category-button-left" stylesheets="@style.css" text="Category">
                            <font>
                               <Font size="1.0" />
                            </font>
@@ -32,7 +31,7 @@
                            </HBox.margin>
                         </Button>
                         <Line endX="100.0" endY="-70.0" layoutX="488.0" layoutY="115.0" scaleX="5.0" startX="100.0" startY="-35.0" stroke="#ffbb00" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefWidth="125.0" styleClass="category-button-middle" stylesheets="@style.css" text="Category">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToCategory" prefWidth="125.0" styleClass="category-button-middle" stylesheets="@style.css" text="Category">
                            <font>
                               <Font size="2.0" />
                            </font>
@@ -41,7 +40,7 @@
                            </HBox.margin>
                         </Button>
                         <Line endX="100.0" endY="-70.0" scaleX="5.0" startX="100.0" startY="-35.0" stroke="#ffbb00" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefWidth="125.0" styleClass="category-button-middle" stylesheets="@style.css" text="Category">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToCategory" prefWidth="125.0" styleClass="category-button-middle" stylesheets="@style.css" text="Category">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -50,7 +49,7 @@
                            </HBox.margin>
                         </Button>
                         <Line endX="100.0" endY="-70.0" layoutX="767.0" layoutY="466.0" scaleX="5.0" startX="100.0" startY="-35.0" stroke="#ffbb00" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefWidth="125.0" styleClass="category-button-middle" stylesheets="@style.css" text="Category">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToCategory" prefWidth="125.0" styleClass="category-button-middle" stylesheets="@style.css" text="Category">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -59,7 +58,7 @@
                            </HBox.margin>
                         </Button>
                         <Line endX="100.0" endY="-70.0" layoutX="398.0" layoutY="115.0" scaleX="5.0" startX="100.0" startY="-35.0" stroke="#ffbb00" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefWidth="125.0" styleClass="category-button-right" stylesheets="@style.css" text="Category">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#goToCategory" prefWidth="125.0" styleClass="category-button-right" stylesheets="@style.css" text="Category">
                            <font>
                               <Font size="21.0" />
                            </font>

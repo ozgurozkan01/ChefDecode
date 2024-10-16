@@ -1,14 +1,19 @@
 package com.example.demo1;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -106,6 +111,23 @@ public class MainController implements Initializable
         catch (IOException e)
         {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void goToCategory(ActionEvent event) {
+        try {
+            Parent mainRoot = FXMLLoader.load(getClass().getResource("category-page.fxml"));
+
+            Scene mainScene = new Scene(mainRoot);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(mainScene);
+            window.show();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
         }
     }
 
