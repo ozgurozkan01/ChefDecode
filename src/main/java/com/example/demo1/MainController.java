@@ -28,9 +28,24 @@ public class MainController implements Initializable
     private ScrollPane recipesScrollPane;
     @FXML
     private GridPane recipesGrid;
+    @FXML
+    private GridPane mostLikeGrid;
 
     private List<Recipe> recipes = new ArrayList<>();
-    private List<MainMostLikedRecipe> mainMostLikedRecipes = new ArrayList<>();
+
+    MostLikedRecipeController mostLikedRecipeController;
+    SavedRecipeController savedRecipeController;
+
+    public MainController()
+    {
+        mostLikedRecipeController = new MostLikedRecipeController();
+        savedRecipeController = new SavedRecipeController();
+    }
+
+    public void OnCategoryButtonPressed()
+    {
+        System.out.println("Category Button Pressed");
+    }
 
     private List<Recipe> getRecipesData()
     {
@@ -50,40 +65,20 @@ public class MainController implements Initializable
         return recipeList;
     }
 
-    private List<MainMostLikedRecipe> getMainMostLikedRecipeData()
+    void loadRecipes()
     {
-        List<MainMostLikedRecipe> mostLikedRecipes = new ArrayList<>();
-        MainMostLikedRecipe mostLikedRecipe;
-
-        for (int i = 0; i < 10; i++)
-        {
-            mostLikedRecipe = new MainMostLikedRecipe();
-            mostLikedRecipe.setName("Çiğ Köfte");
-            mostLikedRecipe.setRate("5.0");
-            mostLikedRecipe.setImageSrc("çk.jpg");
-            mainMostLikedRecipes.add(mostLikedRecipe);
-        }
-
-        return mostLikedRecipes;
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
-        if (recipesGrid == null) {
+        if (recipesGrid == null || mostLikeGrid == null) {
             System.out.println("recipesGrid is null");
             return;
         }
 
         recipes.addAll(getRecipesData());
-        mainMostLikedRecipes.addAll(getMainMostLikedRecipeData());
 
+        int recipeColumn = 0;
+        int recipeRow = 2;
 
-        System.out.println(recipes.size());
-        int column = 0;
-        int row = 2;
-
-        try {
+        try
+        {
             for (var recipe : recipes)
             {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -94,21 +89,30 @@ public class MainController implements Initializable
                 RecipeController recipeController = fxmlLoader.getController();
                 recipeController.setData(recipe);
 
-                if (column == 2)
+                if (recipeColumn == 2)
                 {
-                    column = 0;
-                    row++;
+                    recipeColumn = 0;
+                    recipeRow++;
                 }
 
-                recipesGrid.add(anchorPane, column++, row);
+                recipesGrid.add(anchorPane, recipeColumn++, recipeRow);
 
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
+
+
         }
 
         catch (IOException e)
         {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        loadRecipes();
+        mostLikedRecipeController.loadMostLikedRecipes(mostLikeGrid);
     }
 }

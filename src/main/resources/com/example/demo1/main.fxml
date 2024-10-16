@@ -14,8 +14,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1250.0"
-            xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0"
+            prefWidth="1250.0" xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MainController">
    <children>
       <VBox prefHeight="850.0" prefWidth="1250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -74,6 +74,7 @@
                   <HBox fx:id="includeHeader" prefHeight="108.0" prefWidth="1250.0" BorderPane.alignment="CENTER">
                      <fx:include source="main-top-bar.fxml" />
                   </HBox>
+                  
                </top>
             </BorderPane>
             <HBox prefHeight="634.0" prefWidth="1250.0">
@@ -88,7 +89,17 @@
                               <Font name="Cambria" size="20.0" />
                            </font>
                         </Label>
-                        <ScrollPane fx:id="mostLikedScrollPane" prefHeight="616.0" prefWidth="232.0" />
+                        <ScrollPane fx:id="mostLikedScrollPane" prefHeight="616.0" prefWidth="232.0">
+                           <content>
+                              <GridPane fx:id="mostLikeGrid" prefHeight="0.0" prefWidth="0.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                              </GridPane>
+                           </content>
+                           <VBox.margin>
+                              <Insets left="-15.0" />
+                           </VBox.margin></ScrollPane>
                      </children>
                   </VBox>
                   <ScrollPane fx:id="recipesScrollPane" prefHeight="633.0" prefWidth="708.0">
@@ -96,11 +107,17 @@
                         <Insets bottom="25.0" left="20.0" right="20.0" top="25.0" />
                      </HBox.margin>
                      <content>
-                        <GridPane fx:id="recipesGrid" prefHeight="0.0" prefWidth="0.0">
+                        <GridPane fx:id="recipesGrid" prefHeight="45.0" prefWidth="647.0">
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" />
                            </rowConstraints>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="45.0" />
+                           </padding>
                         </GridPane>
                      </content>
                   </ScrollPane>

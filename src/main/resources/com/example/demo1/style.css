@@ -63,3 +63,9 @@
 {
     -fx-background-radius:20;
 }
+
+.most-like-recipe
+{
+    -fx-background-radius:20;
+    -fx-background-color: #DCDCDC;
+}
