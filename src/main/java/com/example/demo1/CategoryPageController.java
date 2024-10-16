@@ -1,12 +1,17 @@
 package com.example.demo1;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,13 +28,11 @@ public class CategoryPageController implements Initializable {
 
     private List<Recipe> recipes = new ArrayList<>();
 
-    private List<Recipe> getRecipesData()
-    {
+    private List<Recipe> getRecipesData() {
         List<Recipe> recipeList = new ArrayList<>();
         Recipe recipe;
 
-        for (int i = 0; i < 10; i++)
-        {
+        for (int i = 0; i < 10; i++) {
             recipe = new Recipe();
             recipe.setName("Çiğ Köfte");
             recipe.setRate("5.0");
@@ -41,6 +44,7 @@ public class CategoryPageController implements Initializable {
         return recipeList;
     }
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         recipes.addAll(getRecipesData());
@@ -49,8 +53,7 @@ public class CategoryPageController implements Initializable {
         int row = 2;
 
         try {
-            for (var recipe : recipes)
-            {
+            for (var recipe : recipes) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
@@ -71,8 +74,7 @@ public class CategoryPageController implements Initializable {
             }
         }
 
-        catch (IOException e)
-        {
+        catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

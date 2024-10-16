@@ -9,6 +9,11 @@
     -fx-background-color: rgba(0,0,0,0);
 }
 
+.logo-button{
+    -fx-cursor: hand;
+    -fx-background-color: rgba(0,0,0,0);
+}
+
 .search-button
 {
     -fx-background-color: #828282;

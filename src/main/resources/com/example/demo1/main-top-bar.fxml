@@ -13,7 +13,7 @@
    <children>
       <HBox prefHeight="91.0" prefWidth="1250.0" styleClass="top-bar" stylesheets="@style.css">
          <children>
-            <Button fx:id="logoButton" mnemonicParsing="false" onAction="#OnLogoButtonPressed" prefHeight="92.0" prefWidth="399.0" styleClass="transparent" stylesheets="@style.css" text="ChedDecode">
+            <Button fx:id="logoButton" mnemonicParsing="false" onAction="#OnLogoButtonPressed" prefHeight="92.0" prefWidth="399.0" styleClass="logo-button" stylesheets="@style.css" text="ChedDecode">
                <font>
                   <Font name="Cambria" size="35.0" />
                </font>
