@@ -28,18 +28,10 @@ public class CategoryPageController implements Initializable {
 
     private List<Recipe> recipes = new ArrayList<>();
 
-    private List<Recipe> getRecipesData() {
-        List<Recipe> recipeList = new ArrayList<>();
-        Recipe recipe;
+    private Database database = new Database();
 
-        for (int i = 0; i < 10; i++) {
-            recipe = new Recipe();
-            recipe.setName("Çiğ Köfte");
-            recipe.setRate("5.0");
-            recipe.setImgSrc("çk.jpg");
-            recipe.setStarImgSrc("star.png");
-            recipeList.add(recipe);
-        }
+    private List<Recipe> getRecipesData() {
+        List<Recipe> recipeList = database.getAllRecipes();
 
         return recipeList;
     }

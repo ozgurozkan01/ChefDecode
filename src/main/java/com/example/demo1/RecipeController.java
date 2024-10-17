@@ -30,11 +30,12 @@ public class RecipeController {
     {
         this.recipe = recipe;
 
-        rate.setText(recipe.getRate());
+        String rateNumber = String.valueOf(recipe.getRate());
+        rate.setText(rateNumber + " / 5");
         recipeName.setText(recipe.getName());
-        Image image = new Image((getClass().getResourceAsStream(recipe.getImgSrc())));
-        recipeImage.setImage(image);
-        Image starImage = new Image(getClass().getResourceAsStream(recipe.getStarImgSrc()));
-        star.setImage(starImage);
+        //Image image = new Image((getClass().getResourceAsStream(recipe.getImgSrc())));
+        //recipeImage.setImage(image);
+        //Image starImage = new Image(getClass().getResourceAsStream(recipe.getStarImgSrc()));
+        //star.setImage(starImage);
     }
 }
