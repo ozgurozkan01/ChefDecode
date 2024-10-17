@@ -37,6 +37,7 @@ public class MainController implements Initializable
     private GridPane mostLikeGrid;
 
     private List<Recipe> recipes = new ArrayList<>();
+    private List<Recipe> mainMostLikedRecipes = new ArrayList<>();
 
     MostLikedRecipeController mostLikedRecipeController;
     SavedRecipeController savedRecipeController;
@@ -52,31 +53,15 @@ public class MainController implements Initializable
         System.out.println("Category Button Pressed");
     }
 
-    private List<Recipe> getRecipesData()
-    {
-        List<Recipe> recipeList = new ArrayList<>();
-        Recipe recipe;
+    private Database database = new Database();
 
-        for (int i = 0; i < 10; i++)
-        {
-            recipe = new Recipe();
-            recipe.setName("Çiğ Köfte");
-            recipe.setRate("5.0");
-            recipe.setImgSrc("çk.jpg");
-            recipe.setStarImgSrc("star.png");
-            recipeList.add(recipe);
-        }
+    private List<Recipe> getRecipesData() {
+        List<Recipe> recipeList = database.getAllRecipes();
 
         return recipeList;
     }
 
-    void loadRecipes()
-    {
-        if (recipesGrid == null || mostLikeGrid == null) {
-            System.out.println("recipesGrid is null");
-            return;
-        }
-
+    void loadRecipes() {
         recipes.addAll(getRecipesData());
 
         int recipeColumn = 0;
@@ -104,8 +89,6 @@ public class MainController implements Initializable
 
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
-
-
         }
 
         catch (IOException e)
@@ -113,6 +96,33 @@ public class MainController implements Initializable
             throw new RuntimeException(e);
         }
     }
+
+    void loadMostLikedRecipes() {
+        mainMostLikedRecipes.addAll(getRecipesData());
+
+        int recipeColumn = 0;
+        int recipeRow = 2;
+
+        try {
+            for (var mostLikedRecipe : mainMostLikedRecipes) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/mainMostLikedRecipes.fxml"));
+
+                AnchorPane anchorPane = fxmlLoader.load();
+                MostLikedRecipeController mostLikedRecipeController = fxmlLoader.getController();
+                mostLikedRecipeController.setData(mostLikedRecipe);
+
+                mostLikeGrid.add(anchorPane, recipeColumn, recipeRow++);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        }
+
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public void goToCategory(ActionEvent event) {
         try {
@@ -135,6 +145,7 @@ public class MainController implements Initializable
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         loadRecipes();
-        mostLikedRecipeController.loadMostLikedRecipes(mostLikeGrid);
+        loadMostLikedRecipes();
+        //mostLikedRecipeController.loadMostLikedRecipes(mostLikeGrid);
     }
 }
