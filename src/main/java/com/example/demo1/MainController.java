@@ -36,8 +36,8 @@ public class MainController implements Initializable
     @FXML
     private GridPane mostLikeGrid;
 
-    private List<Recipe> recipes = new ArrayList<>();
-    private List<Recipe> mainMostLikedRecipes = new ArrayList<>();
+    private static List<Recipe> recipes = new ArrayList<>();
+    private static List<Recipe> mainMostLikedRecipes = new ArrayList<>();
 
     MostLikedRecipeController mostLikedRecipeController;
     SavedRecipeController savedRecipeController;
@@ -48,14 +48,13 @@ public class MainController implements Initializable
         savedRecipeController = new SavedRecipeController();
     }
 
-    public void OnCategoryButtonPressed()
-    {
-        System.out.println("Category Button Pressed");
-    }
-
     private Database database = new Database();
 
-    private List<Recipe> getRecipesData() {
+    public static List<Recipe> getRecipes() { return recipes; }
+    public static List<Recipe> getMainMostLikedRecipes() { return mainMostLikedRecipes; }
+
+    private List<Recipe> getRecipesData()
+    {
         List<Recipe> recipeList = database.getAllRecipes();
 
         return recipeList;

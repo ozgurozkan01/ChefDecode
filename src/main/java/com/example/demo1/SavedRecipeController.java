@@ -24,34 +24,23 @@ public class SavedRecipeController implements Initializable
     @FXML
     private GridPane savedRecipesGrid;
 
-    private List<Recipe> savedRecipes;
+    private static List<Recipe> savedRecipes = new ArrayList<>();
 
-    public SavedRecipeController()
-    {
-        savedRecipes = new ArrayList<>();
-
-/*        Recipe recipe;
-
-        for (int i = 0; i < 3; i++)
-        {
-            recipe = new Recipe();
-            recipe.setName("Çiğ Köfte");
-            recipe.setRate("5.0");
-            recipe.setImgSrc("çk.jpg");
-            recipe.setStarImgSrc("star.png");
-            savedRecipes.add(recipe);
-        }*/
-    }
+    public SavedRecipeController()  {}
 
     public boolean haveSavedRecipes()
     {
         return savedRecipes.isEmpty();
     }
 
-    private void addSavedRecipe(Recipe newSavedRecipe)
+    public static void addSavedRecipe(Recipe newSavedRecipe)
     {
-        savedRecipes.add(newSavedRecipe);
+        if (!savedRecipes.contains(newSavedRecipe))
+        {
+            savedRecipes.add(newSavedRecipe);
+        }
     }
+    public static List<Recipe> getSavedRecipes() { return savedRecipes; }
 
     void loadSavedRecipes()
     {

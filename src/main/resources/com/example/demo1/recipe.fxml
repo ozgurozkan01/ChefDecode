@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="182.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.RecipeController">
+<AnchorPane prefHeight="182.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.RecipeController">
    <children>
       <ImageView fx:id="recipeImage" fitHeight="158.0" fitWidth="262.0" pickOnBounds="true">
          <image>
             <Image url="@çk.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="180.0" layoutY="5.0" mnemonicParsing="false" styleClass="transparent" stylesheets="@style.css" text="Save" />
-      <Button layoutX="225.0" layoutY="5.0" mnemonicParsing="false" styleClass="transparent" stylesheets="@style.css" text="Edit">
+      <Button fx:id="saveButton" layoutX="180.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnSavedButtonPressed" styleClass="transparent" stylesheets="@style.css" text="Save" />
+      <Button fx:id="editButton" layoutX="225.0" layoutY="5.0" mnemonicParsing="false" styleClass="transparent" stylesheets="@style.css" text="Edit">
          <font>
             <Font name="Segoe UI" size="12.0" />
          </font>

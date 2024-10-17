@@ -12,6 +12,7 @@ public class Recipe
     private String imgSrc;
     private String starImgSrc;
 
+    private boolean isSaved;
 
     public Recipe(String name, String category, int preparationTime, String instruction, int numberPoints, float totalPoints) {
         this.name = name;
@@ -59,4 +60,7 @@ public class Recipe
     public void setStarImgSrc(String starImgSrc) {this.starImgSrc = starImgSrc;}
 
     public String getStarImgSrc() {return starImgSrc;}
+
+    public void setIsSaved(boolean isSaved) { this.isSaved = isSaved; }
+    public boolean isSaved() { return isSaved; }
 }
