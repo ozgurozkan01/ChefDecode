@@ -74,3 +74,9 @@
     -fx-background-radius:20;
     -fx-background-color: #DCDCDC;
 }
+
+.list-cell
+{
+    -fx-padding: 2px;
+    -fx-background-color: transparent;
+}
