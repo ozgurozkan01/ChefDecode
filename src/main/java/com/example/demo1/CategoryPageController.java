@@ -30,6 +30,8 @@ public class CategoryPageController implements Initializable {
 
     private Database database = new Database();
 
+    private String buttonID;
+
     private List<Recipe> getRecipesData() {
         List<Recipe> recipeList = database.getAllRecipes();
 
@@ -40,29 +42,31 @@ public class CategoryPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         recipes.addAll(getRecipesData());
+        buttonID = MainController.getButtonID();
 
         int column = 0;
         int row = 2;
 
         try {
-            for (var recipe : recipes) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
+            for (Recipe recipe : recipes) {
+                if (recipe.getCategory().equals(buttonID)) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
-                AnchorPane anchorPane = fxmlLoader.load();
+                    AnchorPane anchorPane = fxmlLoader.load();
 
-                RecipeController recipeController = fxmlLoader.getController();
-                recipeController.setData(recipe);
+                    RecipeController recipeController = fxmlLoader.getController();
+                    recipeController.setData(recipe);
 
-                if (column == 3)
-                {
-                    column = 0;
-                    row++;
+                    if (column == 3) {
+                        column = 0;
+                        row++;
+                    }
+
+                    grid.add(anchorPane, column++, row);
+
+                    GridPane.setMargin(anchorPane, new Insets(10));
                 }
-
-                grid.add(anchorPane, column++, row);
-
-                GridPane.setMargin(anchorPane, new Insets(10));
             }
         }
 

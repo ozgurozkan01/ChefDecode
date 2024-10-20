@@ -8,18 +8,17 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class MainController implements Initializable
 {
@@ -36,22 +35,22 @@ public class MainController implements Initializable
     @FXML
     private GridPane mostLikeGrid;
 
+    private Button clickedButton;
+
+    private static String buttonID;
+
+    public void setButtonID(String buttonID) {
+        this.buttonID = buttonID;
+    }
+
+    static public String getButtonID() {
+        return buttonID;
+    }
+
     private static List<Recipe> recipes = new ArrayList<>();
     private static List<Recipe> mainMostLikedRecipes = new ArrayList<>();
 
-    MostLikedRecipeController mostLikedRecipeController;
-    SavedRecipeController savedRecipeController;
-
-    public MainController()
-    {
-        mostLikedRecipeController = new MostLikedRecipeController();
-        savedRecipeController = new SavedRecipeController();
-    }
-
     private Database database = new Database();
-
-    public static List<Recipe> getRecipes() { return recipes; }
-    public static List<Recipe> getMainMostLikedRecipes() { return mainMostLikedRecipes; }
 
     private List<Recipe> getRecipesData()
     {
@@ -61,6 +60,7 @@ public class MainController implements Initializable
     }
 
     void loadRecipes() {
+        recipes.clear();
         recipes.addAll(getRecipesData());
 
         int recipeColumn = 0;
@@ -97,13 +97,20 @@ public class MainController implements Initializable
     }
 
     void loadMostLikedRecipes() {
+        mainMostLikedRecipes.clear();
         mainMostLikedRecipes.addAll(getRecipesData());
+
+        List<Recipe> mostLikedRecipes7 = mainMostLikedRecipes.stream()
+                .sorted(Comparator.comparingDouble(Recipe::getRate).reversed())
+                .limit(7)
+                .collect(Collectors.toList());
 
         int recipeColumn = 0;
         int recipeRow = 2;
 
+
         try {
-            for (var mostLikedRecipe : mainMostLikedRecipes) {
+            for (Recipe mostLikedRecipe : mostLikedRecipes7) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/mainMostLikedRecipes.fxml"));
 
@@ -124,7 +131,11 @@ public class MainController implements Initializable
 
     public void goToCategory(ActionEvent event) {
         try {
-            Parent mainRoot = FXMLLoader.load(getClass().getResource("category-page.fxml"));
+            clickedButton = (Button) event.getSource();
+            setButtonID(clickedButton.getId());
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("category-page.fxml"));
+            Parent mainRoot = loader.load();
 
             Scene mainScene = new Scene(mainRoot);
 
@@ -144,6 +155,5 @@ public class MainController implements Initializable
     {
         loadRecipes();
         loadMostLikedRecipes();
-        //mostLikedRecipeController.loadMostLikedRecipes(mostLikeGrid);
     }
 }
