@@ -122,7 +122,6 @@ public class MainController implements Initializable
         }
     }
 
-
     public void goToCategory(ActionEvent event) {
         try {
             Parent mainRoot = FXMLLoader.load(getClass().getResource("category-page.fxml"));

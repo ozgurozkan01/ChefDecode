@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.RecipeDetailController">
+<AnchorPane onMouseClicked="#goToRecipeDetails" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.RecipeDetailController">
    <children>
       <VBox prefHeight="850.0" prefWidth="1250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -109,7 +109,7 @@
                                     <Font size="25.0" />
                                  </font>
                                  <padding>
-                                    <Insets left="150.0" />
+                                    <Insets left="-75.0" />
                                  </padding>
                               </Label>
                               <Button mnemonicParsing="false" text="Saved" />
@@ -122,8 +122,11 @@
                         </HBox>
                         <VBox fx:id="instructions" prefHeight="300.0" prefWidth="620.0" spacing="10.0">
                            <VBox.margin>
-                              <Insets left="25.0" right="25.0" top="10.0" />
+                              <Insets left="50.0" right="25.0" top="10.0" />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
                         </VBox>
                      </children>
                   </VBox>

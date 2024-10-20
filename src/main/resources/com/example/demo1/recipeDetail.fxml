@@ -112,15 +112,21 @@
                               <Image url="@çk.jpg" />
                            </image>
                         </ImageView>
-                        <Label alignment="TOP_CENTER" prefHeight="24.0" prefWidth="619.0" text="- Ingredients -" textFill="#ff7b00">
+                        <Label alignment="TOP_LEFT" prefHeight="24.0" prefWidth="619.0" text="- Ingredients -" textFill="#ff7b00">
                            <font>
                               <Font name="Cambria" size="20.0" />
                            </font>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
                         </Label>
                         <VBox fx:id="instructions" prefHeight="300.0" prefWidth="620.0" spacing="10.0">
                            <VBox.margin>
                               <Insets left="25.0" right="25.0" top="10.0" />
                            </VBox.margin>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
                         </VBox>
                      </children>
                   </VBox>
@@ -130,6 +136,9 @@
                            <font>
                               <Font size="25.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </Label>
                         <VBox fx:id="ingredients" prefHeight="632.0" prefWidth="632.0" spacing="10.0">
                            <VBox.margin>

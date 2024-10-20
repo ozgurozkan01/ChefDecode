@@ -2,12 +2,19 @@ package com.example.demo1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-import java.util.Objects;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class RecipeController
 {
@@ -23,13 +30,17 @@ public class RecipeController
     private Button saveButton;
     @FXML
     private ImageView star;
+    @FXML
+    private AnchorPane anchor;
 
+    private RecipeDetailController recipeDetailController;
     private Recipe recipe;
 
     TopBarController topBarController = new TopBarController();
     public void setData(Recipe recipe)
     {
         this.recipe = recipe;
+        recipeDetailController = new RecipeDetailController(recipe, anchor);
 
         String rateNumber = String.valueOf(recipe.getRate());
         rate.setText(rateNumber + " / 5");
@@ -52,5 +63,18 @@ public class RecipeController
         setData(recipe);
         ActionEvent actionEvent = new ActionEvent();
         topBarController.OnSavedButtonPressed(actionEvent);
+    }
+
+    public void loadDetails()
+    {
+        if (recipeDetailController != null)
+        {
+            recipeDetailController.goToRecipeDetails();
+        }
+        else
+        {
+            System.err.println("recipeDetailController is not initialized.");
+        }
+
     }
 }
