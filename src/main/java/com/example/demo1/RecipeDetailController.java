@@ -1,16 +1,11 @@
 package com.example.demo1;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class RecipeDetailController
 {
@@ -23,25 +18,19 @@ public class RecipeDetailController
     @FXML
     private Label ratedInfo;
     @FXML
+    private ImageView recipeImage;
+    @FXML
     private Label recipeName;
     @FXML
-    private ImageView recipeImage;
+    private Button saveButton;
 
-    private Recipe recipe;
-    private AnchorPane recipeAnchor;
-
-    public RecipeDetailController()
-    {
-
-    }
-    public RecipeDetailController(Recipe recipe, AnchorPane anchor)
-    {
-        this.recipe = recipe;
-        this.recipeAnchor = anchor;
-    };
+    boolean isSaved;
+    Recipe recipe;
 
     void setRecipeDetails(Recipe recipe)
     {
+        this.recipe = recipe;
+
         instructions.getChildren().addAll(new Label("1-\u00A0 Bulgur (1 paket)"), new Label("2-\u00A0 Salça (2 yemek kaşığı) "), new Label("3-\u00A0İyot (2 çay kaşığı)"));
         Label l = new Label();
         l.setText("1-\u00A0Kýyma, tuz, karabiber, kimyon ve diðer baharatlarý bir kapta iyice yoðurun (5 dakika).");
@@ -65,27 +54,20 @@ public class RecipeDetailController
 
     }
 
-    public void goToRecipeDetails()
+    public void updateSaveButton(boolean b)
     {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/demo1/recipeDetail - Copy.fxml"));
+        isSaved = b;
+        String saveText = isSaved ? "Unsave" : "Save";
+        saveButton.setText(saveText);
+    }
 
-            Parent recipeDetailsRoot = loader.load();
+    @FXML
+    public void OnSavedButtonPressed()
+    {
+        if (recipe.isSaved())  { SavedRecipeController.getSavedRecipes().remove(recipe); }
+        else                   { SavedRecipeController.addSavedRecipe(recipe); }
 
-            RecipeDetailController controller = loader.getController();
-            controller.setRecipeDetails(recipe);
-
-            Scene recipeDetailsScene = new Scene(recipeDetailsRoot);
-            Stage window = (Stage) recipeAnchor.getScene().getWindow();
-
-            if (window != null)
-            {
-                window.setScene(recipeDetailsScene);
-                window.show();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        recipe.setIsSaved(!recipe.isSaved());
+        updateSaveButton(!isSaved);
     }
 }

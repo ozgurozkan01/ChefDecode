@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RecipeController
+public class RecipeController implements Initializable
 {
     @FXML
     private Label rate;
@@ -36,11 +36,9 @@ public class RecipeController
     private RecipeDetailController recipeDetailController;
     private Recipe recipe;
 
-    TopBarController topBarController = new TopBarController();
     public void setData(Recipe recipe)
     {
         this.recipe = recipe;
-        recipeDetailController = new RecipeDetailController(recipe, anchor);
 
         String rateNumber = String.valueOf(recipe.getRate());
         rate.setText(rateNumber + " / 5");
@@ -48,6 +46,7 @@ public class RecipeController
 
         String saveText = recipe.isSaved() ? "Unsave" : "Save";
         saveButton.setText(saveText);
+
         //Image image = new Image((getClass().getResourceAsStream(recipe.getImgSrc())));
         //recipeImage.setImage(image);
         //Image starImage = new Image(getClass().getResourceAsStream(recipe.getStarImgSrc()));
@@ -61,20 +60,38 @@ public class RecipeController
 
         recipe.setIsSaved(!recipe.isSaved());
         setData(recipe);
-        ActionEvent actionEvent = new ActionEvent();
-        topBarController.OnSavedButtonPressed(actionEvent);
     }
 
     public void loadDetails()
     {
-        if (recipeDetailController != null)
-        {
-            recipeDetailController.goToRecipeDetails();
-        }
-        else
-        {
-            System.err.println("recipeDetailController is not initialized.");
-        }
+        goToRecipeDetails();
+    }
 
+    public void goToRecipeDetails() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/demo1/recipeDetail - Copy.fxml"));
+
+            Parent recipeDetailsRoot = loader.load();
+
+            recipeDetailController = loader.getController();
+            recipeDetailController.setRecipeDetails(recipe);
+            recipeDetailController.updateSaveButton(recipe.isSaved());
+
+            Scene recipeDetailsScene = new Scene(recipeDetailsRoot);
+            Stage window = (Stage) anchor.getScene().getWindow();
+
+            if (window != null) {
+                window.setScene(recipeDetailsScene);
+                window.show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
     }
 }
