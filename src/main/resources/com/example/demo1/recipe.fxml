@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <Button fx:id="saveButton" layoutX="180.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnSavedButtonPressed" styleClass="transparent" stylesheets="@style.css" text="Save" />
-      <Button fx:id="editButton" layoutX="225.0" layoutY="5.0" mnemonicParsing="false" styleClass="transparent" stylesheets="@style.css" text="Edit">
+      <Button fx:id="editButton" layoutX="225.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnEditButtonPressed" styleClass="transparent" stylesheets="@style.css" text="Edit">
          <font>
             <Font name="Segoe UI" size="12.0" />
          </font>

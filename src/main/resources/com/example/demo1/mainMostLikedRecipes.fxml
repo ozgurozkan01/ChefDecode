@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="50.0" prefWidth="200.0" styleClass="most-like-recipe" stylesheets="@style.css"
-            xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MostLikedRecipeController">
+<AnchorPane fx:id="anchor" onMouseClicked="#loadDetails" prefHeight="50.0" prefWidth="200.0" styleClass="most-like-recipe" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.MostLikedRecipeController">
    <children>
       <Label fx:id="name" alignment="CENTER" layoutX="52.0" layoutY="2.0" prefHeight="50.0" prefWidth="112.0" text="Çiğ Köfte">
          <font>

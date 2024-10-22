@@ -10,8 +10,7 @@ public class Database {
 
 
         // String url = "jdbc:sqlite:/Users/ubeydgur/Projects/Java/ChefDecode/src/database/recipes.db";
-        // String url = "jdbc:sqlite:/Users/ozgur/Github/ChefDecode/src/database/recipes.db";
-        String url = "jdbc:sqlite:/Users/ubeydgur/Projects/Java/ChefDecode/src/database/recipes.db";
+        String url = "jdbc:sqlite:/Users/ozgur/Github/ChefDecode/src/database/recipes.db";
         connect = DriverManager.getConnection(url);
 
         if (connect != null) {

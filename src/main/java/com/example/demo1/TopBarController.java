@@ -29,6 +29,8 @@ public class TopBarController
 
     public void OnLogoButtonPressed(ActionEvent event)
     {
+        SavedRecipeController.isSavedRecipePageOpen = false;
+
         try
         {
             Parent mainRoot = FXMLLoader.load(getClass().getResource("main.fxml"));
@@ -49,20 +51,26 @@ public class TopBarController
     {
         try
         {
-            Parent savedRecipeRoot = FXMLLoader.load(getClass().getResource("savedRecipes.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo1/savedRecipes.fxml"));
+            Parent root = loader.load();
 
-            Scene savedRecipeScene = new Scene(savedRecipeRoot);
+            savedRecipeController = loader.getController();
+            savedRecipeController.loadSavedRecipes();
+            SavedRecipeController.setInstance(savedRecipeController);
+            SavedRecipeController.setTopBarController(this);
 
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
 
-            window.setScene(savedRecipeScene);
-            window.show();
+            SavedRecipeController.isSavedRecipePageOpen = true;
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
     }
+
     public void OnSearchButtonPressed()
     {
         System.out.println("Search Button Pressed");

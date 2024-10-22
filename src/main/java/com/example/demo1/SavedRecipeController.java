@@ -26,8 +26,14 @@ public class SavedRecipeController implements Initializable
 
     private static List<Recipe> savedRecipes = new ArrayList<>();
 
-    public SavedRecipeController()  {}
+    private static SavedRecipeController instance;
+    private static TopBarController topBarController;
 
+    static boolean isSavedRecipePageOpen = false;
+
+    public SavedRecipeController()
+    {
+    }
     public boolean haveSavedRecipes()
     {
         return savedRecipes.isEmpty();
@@ -40,6 +46,17 @@ public class SavedRecipeController implements Initializable
             savedRecipes.add(newSavedRecipe);
         }
     }
+
+    public static void removeSavedRecipe(Recipe removedRecipe)
+    {
+        savedRecipes.remove(removedRecipe);
+    }
+
+    public static void setInstance(SavedRecipeController controller) { instance = controller; }
+    public static SavedRecipeController getInstance()  { return instance; }
+    public static void setTopBarController(TopBarController controller) { topBarController = controller; }
+    public static TopBarController getTopBarController()  { return topBarController; }
+
     public static List<Recipe> getSavedRecipes() { return savedRecipes; }
 
     void loadSavedRecipes()
@@ -94,6 +111,8 @@ public class SavedRecipeController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        instance = this;
+
         noSavedRecipeText.setText("No Saved Recipe");
         noSavedRecipeText.setVisible(false);
         savedRecipeText.setText("Recipes You Saved");

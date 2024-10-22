@@ -39,6 +39,9 @@ public class MainController implements Initializable
 
     private static String buttonID;
 
+    private static List<Recipe> recipes = new ArrayList<>();
+    private static List<Recipe> mainMostLikedRecipes = new ArrayList<>();
+
     public void setButtonID(String buttonID) {
         this.buttonID = buttonID;
     }
@@ -46,9 +49,6 @@ public class MainController implements Initializable
     static public String getButtonID() {
         return buttonID;
     }
-
-    private static List<Recipe> recipes = new ArrayList<>();
-    private static List<Recipe> mainMostLikedRecipes = new ArrayList<>();
 
     private Database database = new Database();
 
@@ -60,8 +60,12 @@ public class MainController implements Initializable
     }
 
     void loadRecipes() {
-        recipes.clear();
-        recipes.addAll(getRecipesData());
+        // recipes.clear();
+
+        if (recipes.isEmpty())
+        {
+            recipes.addAll(getRecipesData());
+        }
 
         int recipeColumn = 0;
         int recipeRow = 2;
@@ -97,8 +101,13 @@ public class MainController implements Initializable
     }
 
     void loadMostLikedRecipes() {
-        mainMostLikedRecipes.clear();
-        mainMostLikedRecipes.addAll(getRecipesData());
+        // mainMostLikedRecipes.clear();
+
+        if (mainMostLikedRecipes.isEmpty())
+        {
+            mainMostLikedRecipes.addAll(getRecipesData());
+        }
+
 
         List<Recipe> mostLikedRecipes7 = mainMostLikedRecipes.stream()
                 .sorted(Comparator.comparingDouble(Recipe::getRate).reversed())
@@ -107,7 +116,6 @@ public class MainController implements Initializable
 
         int recipeColumn = 0;
         int recipeRow = 2;
-
 
         try {
             for (Recipe mostLikedRecipe : mostLikedRecipes7) {

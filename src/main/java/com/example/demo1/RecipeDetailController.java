@@ -70,4 +70,10 @@ public class RecipeDetailController
         recipe.setIsSaved(!recipe.isSaved());
         updateSaveButton(!isSaved);
     }
+
+    @FXML
+    public void OnEditButtonPressed()
+    {
+
+    }
 }
