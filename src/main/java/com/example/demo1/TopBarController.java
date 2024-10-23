@@ -47,6 +47,7 @@ public class TopBarController
             e.printStackTrace();
         }
     }
+
     public void OnSavedButtonPressed(ActionEvent event)
     {
         try
@@ -75,8 +76,22 @@ public class TopBarController
     {
         System.out.println("Search Button Pressed");
     }
-    public void OnAddRecipeButtonPressed()
+    public void OnAddRecipeButtonPressed(ActionEvent event)
     {
-        System.out.println("Add Recipe Button Pressed");
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("addRecipe.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            SavedRecipeController.isSavedRecipePageOpen = true;
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

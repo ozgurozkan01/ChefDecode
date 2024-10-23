@@ -2,6 +2,7 @@ package com.example.demo1;
 
 public class Recipe
 {
+    private int recipeID;
     private String name;
     private String category;
     private int preparationTime;
@@ -14,7 +15,8 @@ public class Recipe
 
     private boolean isSaved;
 
-    public Recipe(String name, String category, int preparationTime, String instruction, int numberPoints, float totalPoints) {
+    public Recipe(int id, String name, String category, int preparationTime, String instruction, int numberPoints, float totalPoints) {
+        this.recipeID = id;
         this.name = name;
         this.category = category;
         this.preparationTime = preparationTime;
@@ -28,6 +30,9 @@ public class Recipe
     public String getName() {return name;}
 
     public void setName(String name) {this.name = name;}
+
+    public int getID() {return recipeID;}
+    public void setID(int id) {this.recipeID = id;}
 
     public String getCategory() {return category;}
 

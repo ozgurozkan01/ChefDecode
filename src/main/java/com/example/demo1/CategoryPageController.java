@@ -26,13 +26,12 @@ public class CategoryPageController implements Initializable {
     @FXML
     private ScrollPane scroll;
 
-    private List<Recipe> recipes = new ArrayList<>();
-
     private Database database = new Database();
 
     private String buttonID;
 
-    private List<Recipe> getRecipesData() {
+    private List<Recipe> getRecipesData()
+    {
         List<Recipe> recipeList = database.getAllRecipes();
 
         return recipeList;
@@ -40,16 +39,18 @@ public class CategoryPageController implements Initializable {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        recipes.addAll(getRecipesData());
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
         buttonID = MainController.getButtonID();
 
         int column = 0;
         int row = 2;
 
         try {
-            for (Recipe recipe : recipes) {
-                if (recipe.getCategory().equals(buttonID)) {
+            for (Recipe recipe : MainController.recipes)
+            {
+                if (recipe.getCategory().equals(buttonID))
+                {
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 

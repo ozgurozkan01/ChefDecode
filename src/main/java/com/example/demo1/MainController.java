@@ -39,7 +39,10 @@ public class MainController implements Initializable
 
     private static String buttonID;
 
-    private static List<Recipe> recipes = new ArrayList<>();
+    public static int recipeIDCounter = 16;
+    public static int ingredientIDCounter = 0;
+
+    public static List<Recipe> recipes = new ArrayList<>();
     private static List<Recipe> mainMostLikedRecipes = new ArrayList<>();
 
     public void setButtonID(String buttonID) {
@@ -105,20 +108,20 @@ public class MainController implements Initializable
 
         if (mainMostLikedRecipes.isEmpty())
         {
-            mainMostLikedRecipes.addAll(getRecipesData());
+             mainMostLikedRecipes = recipes.stream()
+                    .sorted(Comparator.comparingDouble(Recipe::getRate).reversed())
+                    .limit(7)
+                    .collect(Collectors.toList());
         }
 
-
-        List<Recipe> mostLikedRecipes7 = mainMostLikedRecipes.stream()
-                .sorted(Comparator.comparingDouble(Recipe::getRate).reversed())
-                .limit(7)
-                .collect(Collectors.toList());
 
         int recipeColumn = 0;
         int recipeRow = 2;
 
-        try {
-            for (Recipe mostLikedRecipe : mostLikedRecipes7) {
+        try
+        {
+            for (Recipe mostLikedRecipe : mainMostLikedRecipes)
+            {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/mainMostLikedRecipes.fxml"));
 
@@ -163,5 +166,20 @@ public class MainController implements Initializable
     {
         loadRecipes();
         loadMostLikedRecipes();
+
+        database.deleteRecipe(999);
+        Recipe r = database.getRecipe(999);
+
+        if (r != null)
+        {
+            System.out.println("Tarif Adı: " + r.getName());
+            System.out.println("Kategori: " + r.getCategory());
+            System.out.println("Hazırlama Süresi: " + r.getPreparationTime() + " dakika");
+            System.out.println("Talimatlar: " + r.getInstruction());
+        }
+        else
+        {
+            System.out.println("Tarif bulunamadı.");
+        }
     }
 }

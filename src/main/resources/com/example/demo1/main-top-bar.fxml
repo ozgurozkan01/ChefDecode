@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="89.0"
-            prefWidth="1250.0" xmlns="http://javafx.com/javafx/21-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.TopBarController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="89.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.TopBarController">
    <children>
       <HBox prefHeight="91.0" prefWidth="1250.0" styleClass="top-bar" stylesheets="@style.css">
          <children>
@@ -20,7 +19,7 @@
             </Button>
             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="485.0" stylesheets="@style.css">
                <children>
-                  <TextField fx:id="searchBar" opacity="0.5" prefHeight="25.0" prefWidth="409.0" styleClass="transparent" stylesheets="@style.css" text="Search Recipe">
+                  <TextField fx:id="searchBar" opacity="0.5" prefHeight="25.0" prefWidth="409.0" promptText="Search Recipe" styleClass="transparent" stylesheets="@style.css">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
