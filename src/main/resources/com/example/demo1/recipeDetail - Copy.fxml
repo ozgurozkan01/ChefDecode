@@ -66,7 +66,7 @@
                                     <Image url="@clock.jpeg" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" prefHeight="35.0" prefWidth="66.0" text="70 dk.">
+                              <Label fx:id="preparationTimeLabel" alignment="CENTER" prefHeight="35.0" prefWidth="66.0" text="70 dk.">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -79,7 +79,7 @@
                                     <Image url="@money.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="1000£">
+                              <Label fx:id="unitPriceLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="1000£">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -120,7 +120,7 @@
                               </Button>
                            </children>
                         </HBox>
-                        <VBox fx:id="instructions" prefHeight="300.0" prefWidth="620.0" spacing="10.0">
+                        <VBox fx:id="ingredients" prefHeight="300.0" prefWidth="620.0" spacing="10.0">
                            <VBox.margin>
                               <Insets left="50.0" right="25.0" top="10.0" />
                            </VBox.margin>
@@ -137,7 +137,7 @@
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <VBox fx:id="ingredients" prefHeight="632.0" prefWidth="632.0" spacing="10.0">
+                        <VBox fx:id="instructions" prefHeight="632.0" prefWidth="632.0" spacing="10.0">
                            <VBox.margin>
                               <Insets left="25.0" right="25.0" top="10.0" />
                            </VBox.margin>

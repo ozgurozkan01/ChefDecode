@@ -23,22 +23,21 @@
             </BorderPane>
             <HBox prefHeight="770.0" prefWidth="1250.0">
                <children>
-                  <VBox prefHeight="761.0" prefWidth="334.0">
+                  <VBox fx:id="recipeBox" prefHeight="761.0" prefWidth="334.0">
                      <children>
                         <TextField fx:id="nameInput" promptText="Enter Recipe Name" />
-                        <TextField fx:id="categoryInput" promptText="Enter Category" />
+                        <ComboBox fx:id="categoryCombo" prefWidth="150.0" promptText="Chose category" />
                         <TextField fx:id="timeInput" promptText="Enter Preparation Time" />
-                        <TextField fx:id="instructionInput" promptText="Enter Instructions" />
+                        <Button fx:id="addRowButton" mnemonicParsing="false" onAction="#OnAddNewRowButtonPressed" text="New Instruction Row" />
+                        <Button fx:id="deleteRowButton" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" onAction="#OnDeleteLastRowButtonPressed" text="Delete Last Row" />
                         <Button fx:id="addButton" mnemonicParsing="false" onAction="#OnAddRecipeButtonPressed" text="Tarif Ekle" />
                      </children>
                   </VBox>
                   <VBox fx:id="ingredientBox" prefHeight="761.0" prefWidth="543.0">
                      <children>
                         <ComboBox fx:id="ingredientCombo" onAction="#OnIngredientComboBoxPressed" prefHeight="25.0" prefWidth="260.0" promptText="Chose Ingredient" />
-                        <ComboBox fx:id="quantityCombo" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="260.0" promptText="Chose amount type" />
-                        <TextField fx:id="quantityText" promptText="Enter quantity amount" />
-                        <TextField fx:id="priceText" layoutX="10.0" layoutY="60.0" promptText="Enter unit price" />
-                        <Button fx:id="addIngredient" onAction="#OnAddIngredientButtonPressed" mnemonicParsing="false" text="Add Ingredient" />
+                        <TextField fx:id="ingredientQuantity" promptText="Enter ingredient quantity " />
+                        <Button fx:id="addIngredient" mnemonicParsing="false" onAction="#OnAddIngredientButtonPressed" text="Add Ingredient" />
                         <ListView fx:id="addedIngredientList" prefHeight="666.0" prefWidth="543.0" />
                      </children>
                   </VBox>

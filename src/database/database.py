@@ -21,7 +21,7 @@ c.execute('''
 CREATE TABLE IF NOT EXISTS ingredients(
     IngredientID INT NOT NULL PRIMARY KEY,
     IngredientName VARCHAR(30) NOT NULL,
-    StockQuantity VARCHAR(30),
+    StockQuantity VARCHAR(30) NOT NULL,
     Unit VARCHAR(30) NOT NULL,
     UnitPrice INT NOT NULL
 );

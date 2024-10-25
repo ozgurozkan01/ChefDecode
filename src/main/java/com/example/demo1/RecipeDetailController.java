@@ -7,6 +7,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.util.List;
+
 public class RecipeDetailController
 {
     @FXML
@@ -23,6 +25,12 @@ public class RecipeDetailController
     private Label recipeName;
     @FXML
     private Button saveButton;
+    @FXML
+    private Label preparationTimeLabel;
+    @FXML
+    private Label unitPriceLabel;
+
+    Database db = new Database();
 
     boolean isSaved;
     Recipe recipe;
@@ -31,7 +39,7 @@ public class RecipeDetailController
     {
         this.recipe = recipe;
 
-        instructions.getChildren().addAll(new Label("1-\u00A0 Bulgur (1 paket)"), new Label("2-\u00A0 Salça (2 yemek kaşığı) "), new Label("3-\u00A0İyot (2 çay kaşığı)"));
+/*
         Label l = new Label();
         l.setText("1-\u00A0Kýyma, tuz, karabiber, kimyon ve diðer baharatlarý bir kapta iyice yoðurun (5 dakika).");
         l.setWrapText(true);
@@ -46,12 +54,24 @@ public class RecipeDetailController
         l3.setText("3-\u00A0Karýþýmý yaðlanmýþ fýrýn kabýna dökün ve önceden ýsýtýlmýþ 180°C fýrýnda yaklaþýk 25-30 dakika piþirin (30 dakika).");
         l3.setWrapText(true);
         l3.setStyle("-fx-font-size: 15px;");
+*/
 
-        ingredients.getChildren().addAll(l, l2, l3);
-        rate.setText("3.0");
-        ratedInfo.setText("( 1522342 people rated )");
-        recipeName.setText("Baklava");
+        List<String> ingredientNameList = db.getIngredientsByRecipeId(recipe.getID());
 
+        if (ingredientNameList.isEmpty())
+        {
+            System.out.println("List is empty.");
+        }
+        for (var ingredient : ingredientNameList)
+        {
+            ingredients.getChildren().add(new Label(ingredient));
+        }
+
+        instructions.getChildren().add(new Label(recipe.getInstruction()));
+        rate.setText(Float.toString(recipe.getRate()));
+        ratedInfo.setText("( " + recipe.getNumberPoints() + " people rated )");
+        recipeName.setText(recipe.getName());
+        preparationTimeLabel.setText(Integer.toString(recipe.getPreparationTime()));
     }
 
     public void updateSaveButton(boolean b)

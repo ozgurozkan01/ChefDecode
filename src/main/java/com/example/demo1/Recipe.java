@@ -23,7 +23,7 @@ public class Recipe
         this.instruction = instruction;
         this.numberPoints = numberPoints;
         this.totalPoints = totalPoints;
-        this.rate = totalPoints / numberPoints;
+        this.rate = numberPoints == 0 ? 0 : totalPoints / numberPoints;
     }
 
 

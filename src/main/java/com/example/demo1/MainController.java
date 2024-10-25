@@ -39,8 +39,7 @@ public class MainController implements Initializable
 
     private static String buttonID;
 
-    public static int recipeIDCounter = 16;
-    public static int ingredientIDCounter = 0;
+    private Database database = new Database();
 
     public static List<Recipe> recipes = new ArrayList<>();
     private static List<Recipe> mainMostLikedRecipes = new ArrayList<>();
@@ -53,7 +52,6 @@ public class MainController implements Initializable
         return buttonID;
     }
 
-    private Database database = new Database();
 
     private List<Recipe> getRecipesData()
     {
