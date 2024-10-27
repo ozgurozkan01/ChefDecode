@@ -15,7 +15,7 @@ public class Database {
 
     private Connection connect() throws SQLException
     {
-        String url = "jdbc:sqlite:/Users/ozgur/Github/ChefDecode/src/database/rcp.db";
+        String url = "jdbc:sqlite:/Users/ubeydgur/Projects/Java/ChefDecode/src/database/recipes.db";
         connect = DriverManager.getConnection(url);
 
         if (connect != null) {
