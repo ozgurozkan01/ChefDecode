@@ -1,27 +1,22 @@
 package com.example.demo1;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class CategoryPageController implements Initializable {
     @FXML
     private GridPane grid;
+    static GridPane heyGrid;
 
     @FXML
     private ScrollPane scroll;
@@ -29,49 +24,78 @@ public class CategoryPageController implements Initializable {
     private Database database = new Database();
 
     private String buttonID;
-
-    private List<Recipe> getRecipesData()
-    {
-        List<Recipe> recipeList = database.getAllRecipes();
-
-        return recipeList;
-    }
+    private int number = 0;
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle)
-    {
+    public void basla(GridPane grid, int number) throws IOException {
         buttonID = MainController.getButtonID();
 
         int column = 0;
         int row = 2;
 
-        try {
-            for (Recipe recipe : MainController.recipes)
-            {
-                if (recipe.getCategory().equals(buttonID))
-                {
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
+        if (number == 1) {
+            grid.getChildren().clear();
 
-                    AnchorPane anchorPane = fxmlLoader.load();
+            try {
+                for (Recipe recipe : MainController.recipes) {
+                    if (recipe.getCategory().equals(buttonID) && FilterController.filtering(recipe) != null) {
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
-                    RecipeController recipeController = fxmlLoader.getController();
-                    recipeController.setData(recipe);
+                        AnchorPane anchorPane = fxmlLoader.load();
 
-                    if (column == 3) {
-                        column = 0;
-                        row++;
+                        RecipeController recipeController = fxmlLoader.getController();
+                        recipeController.setData(recipe);
+
+                        if (column == 3) {
+                            column = 0;
+                            row++;
+                        }
+
+                        grid.add(anchorPane, column++, row);
+
+                        GridPane.setMargin(anchorPane, new Insets(10));
                     }
-
-                    grid.add(anchorPane, column++, row);
-
-                    GridPane.setMargin(anchorPane, new Insets(10));
                 }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
+        else {
+            try {
+                for (Recipe recipe : MainController.recipes) {
+                    if (recipe.getCategory().equals(buttonID)) {
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
-        catch (IOException e) {
+                        AnchorPane anchorPane = fxmlLoader.load();
+
+                        RecipeController recipeController = fxmlLoader.getController();
+                        recipeController.setData(recipe);
+
+                        if (column == 3) {
+                            column = 0;
+                            row++;
+                        }
+
+                        grid.add(anchorPane, column++, row);
+                        heyGrid = grid;
+
+                        GridPane.setMargin(anchorPane, new Insets(10));
+                    }
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        System.out.println(grid.getChildren().size());
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            basla(grid, number);
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
