@@ -22,7 +22,7 @@
 
 .top-bar
 {
-    -fx-background-color: #FF8800;
+    -fx-background-color: #fa485c;
 }
 
 .shadow
@@ -37,7 +37,7 @@
 
 .category-button-middle
 {
-    -fx-background-color: #EE4D4D;
+    -fx-background-color: #fa485c;
     -fx-font-size: 20px;
     -fx-font-weight: bold;
     -fx-cursor: hand;
@@ -46,7 +46,7 @@
 
 .category-button-right
 {
-    -fx-background-color: #EE4D4D;
+    -fx-background-color: #fa485c;
     -fx-font-size: 20px;
     -fx-cursor: hand;
     -fx-font-weight: bold;
@@ -56,7 +56,7 @@
 
 .category-button-left
 {
-    -fx-background-color: #EE4D4D;
+    -fx-background-color: #fa485c;
     -fx-font-size: 20px;
     -fx-cursor: hand;
     -fx-font-weight: bold;
@@ -72,7 +72,7 @@
 .most-like-recipe
 {
     -fx-background-radius:20;
-    -fx-background-color: #DCDCDC;
+    -fx-background-color: #e6e6e6;
 }
 
 .list-cell
