@@ -25,17 +25,20 @@ public class AddRecipeController implements Initializable
     private Button deleteRowButton;
     @FXML
     private Button addRowButton;
-
     @FXML
     private ListView<String> addedIngredientList;
     @FXML
     private Button addButton;
+    @FXML
+    private Button deleteLastIngredient;
     @FXML
     private Button addIngredient;
     @FXML
     private HBox includeHeader;
     @FXML
     private ComboBox<String> ingredientCombo;
+    @FXML
+    private ComboBox<String> unitTypeCombo;
     @FXML
     private ComboBox<String> categoryCombo;
     @FXML
@@ -53,66 +56,75 @@ public class AddRecipeController implements Initializable
     private TextField ingredientStorageQuantity;
     private TextField priceText;
 
-    boolean isAddingNewIngredient;
-
     private List<Ingredient> ingredientList = new ArrayList<>();
     private List<TextField> instructionTextFieldList = new ArrayList<>();
 
     int rowIndex = 5;
 
+    boolean isAddingNewIngredient;
+
     public void OnIngredientComboBoxPressed()
     {
         if (ingredientCombo.getValue().equals("Add New Ingredient..."))
         {
-            ingredientBox.getChildren().get(1).setVisible(true);
             ingredientBox.getChildren().get(3).setVisible(true);
+            ingredientBox.getChildren().get(4).setVisible(true);
             ingredientBox.getChildren().get(5).setVisible(true);
+            unitTypeCombo.setVisible(true);
             isAddingNewIngredient = true;
             ingredientQuantity.setPromptText("Enter ingredient quantity");
             return;
         }
 
         isAddingNewIngredient = false;
-        ingredientBox.getChildren().get(1).setVisible(false);
         ingredientBox.getChildren().get(3).setVisible(false);
+        ingredientBox.getChildren().get(4).setVisible(false);
         ingredientBox.getChildren().get(5).setVisible(false);
+        unitTypeCombo.setVisible(false);
         ingredientQuantity.setPromptText("Enter ingredient quantity (" + db.getIngredientUnitTypeByName(ingredientCombo.getValue()) + ")" );
     }
 
     public void OnAddIngredientButtonPressed()
     {
         String ingredientName = isAddingNewIngredient ? newIngredientField.getText() : ingredientCombo.getValue();
-        String quantityType = db.getIngredientUnitTypeByName(ingredientName);
-        String quantity = isAddingNewIngredient ? ingredientStorageQuantity.getText() : "0";
+        String quantityType = isAddingNewIngredient ? unitTypeCombo.getValue() : db.getIngredientUnitTypeByName(ingredientName);
+        String quantity = isAddingNewIngredient ? ingredientStorageQuantity.getText() : ingredientQuantity.getText();
         String unitPrice = isAddingNewIngredient ? priceText.getText() : db.getIngredientUnitPrice(ingredientName);
 
-        if (!ingredientName.isEmpty() && !quantityType.isEmpty() && !quantity.isEmpty() && !unitPrice.isEmpty())
-        {
-            Ingredient newIngredient = new Ingredient(db.getMaxIngredientIdFromDatabase() + 1, ingredientName, quantity, quantityType, Integer.parseInt(unitPrice));
+        if (!ingredientName.isEmpty() && !quantityType.isEmpty() && !quantity.isEmpty() && !unitPrice.isEmpty()) {
+            int ingredientID;
+            Ingredient existingIngredient = db.getIngredientByName(ingredientName);
 
-            if (!ingredientList.contains(newIngredient))
-            {
+            if (existingIngredient != null) { ingredientID = existingIngredient.getIngredientID(); }
+            else                            { ingredientID = db.getMaxIngredientIdFromDatabase() + 1; }
+
+            Ingredient newIngredient = new Ingredient(ingredientID, ingredientName, quantity, quantityType, Integer.parseInt(unitPrice));
+
+            if (!ingredientNames.contains(newIngredient.getIngredientName())) {
                 ingredientNames.add(ingredientName);
                 addedIngredientList.setItems(ingredientNames);
                 ingredientList.add(newIngredient);
 
-                if (isAddingNewIngredient)
-                {
-                    Ingredient existingIngredient = db.getIngredientByName(ingredientName);
-                    if (existingIngredient != null)
-                    {
-                        int updatedQuantity = Integer.parseInt(existingIngredient.getQuantity()) + Integer.parseInt(quantity);
-                        existingIngredient.setQuantity(String.valueOf(updatedQuantity));
-                        System.out.println("Updated storage for " + existingIngredient.getIngredientName() + ": " + existingIngredient.getQuantity());
-
-                        db.updateIngredient(existingIngredient);
-                    }
-                    else
-                    {
-                        db.insertIngredient(newIngredient);
-                    }
+                if (isAddingNewIngredient && existingIngredient != null) {
+                    int updatedQuantity = Integer.parseInt(existingIngredient.getQuantity()) + Integer.parseInt(quantity);
+                    existingIngredient.setQuantity(String.valueOf(updatedQuantity));
+                    System.out.println("Updated storage for " + existingIngredient.getIngredientName() + ": " + existingIngredient.getQuantity());
+                    db.updateIngredient(existingIngredient);
+                } else if (isAddingNewIngredient) {
+                    db.insertIngredient(newIngredient);
                 }
             }
+        }
+
+        System.out.println(ingredientList.size());
+    }
+
+    public void OnDeleteIngredientButtonPressed()
+    {
+        if (!addedIngredientList.getItems().isEmpty())
+        {
+            addedIngredientList.getItems().remove(addedIngredientList.getItems().getLast());
+            ingredientList.remove(ingredientList.getLast());
         }
     }
 
@@ -152,12 +164,18 @@ public class AddRecipeController implements Initializable
             db.insertRecipe(recipe);
             MainController.recipes.add(recipe);
 
+            System.out.println(ingredientList.size());
+
             for (var ingredient : ingredientList)
             {
-                db.insertIngredient(ingredient);
+                // db.insertIngredient(ingredient);
+                System.out.println(ingredient.getQuantity());
                 db.insertRelation(recipe.getID(), ingredient.getIngredientID(), Float.parseFloat(ingredient.getQuantity()));
             }
+
+            System.out.println("Recipe ID : " + recipe.getID());
         }
+
     }
 
     public void OnAddNewRowButtonPressed()
@@ -189,12 +207,12 @@ public class AddRecipeController implements Initializable
         priceText = new TextField();
         priceText.setPromptText("Enter Unit Price");
 
-        ingredientBox.getChildren().add(1, newIngredientField);
-        ingredientBox.getChildren().add(3, ingredientStorageQuantity);
+        ingredientBox.getChildren().add(3, newIngredientField);
+        ingredientBox.getChildren().add(4, ingredientStorageQuantity);
         ingredientBox.getChildren().add(5, priceText);
 
-        ingredientBox.getChildren().get(1).setVisible(false);
         ingredientBox.getChildren().get(3).setVisible(false);
+        ingredientBox.getChildren().get(4).setVisible(false);
         ingredientBox.getChildren().get(5).setVisible(false);
 
         ObservableList<String> ingredientOptions = FXCollections.observableArrayList("Add New Ingredient...");
@@ -209,5 +227,10 @@ public class AddRecipeController implements Initializable
 
         ObservableList<String> categoryList = FXCollections.observableArrayList("Main Courses", "Soups", "Appetizers", "Snacks", "Desserts");
         categoryCombo.setItems(categoryList);
+
+
+        ObservableList<String> unitList = FXCollections.observableArrayList("kg", "g", "l", "ml", "adet");
+        unitTypeCombo.setItems(unitList);
+        unitTypeCombo.setVisible(false);
     }
 }

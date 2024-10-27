@@ -1,5 +1,11 @@
 package com.example.demo1;
 
+import javafx.scene.Node;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +13,9 @@ import java.util.List;
 public class Database {
     Connection connect = null;
 
-    private Connection connect() throws SQLException {
-
-
-        // String url = "jdbc:sqlite:/Users/ubeydgur/Projects/Java/ChefDecode/src/database/recipes.db";
-        String url = "jdbc:sqlite:/Users/ozgur/Github/ChefDecode/src/database/recipes.db";
+    private Connection connect() throws SQLException
+    {
+        String url = "jdbc:sqlite:/Users/ozgur/Github/ChefDecode/src/database/rcp.db";
         connect = DriverManager.getConnection(url);
 
         if (connect != null) {
@@ -19,7 +23,6 @@ public class Database {
         }
         return connect;
     }
-
 
     public List<Recipe> getAllRecipes()
     {
@@ -104,6 +107,18 @@ public class Database {
 
     public void deleteRecipe(int recipeID)
     {
+        String deleteRelationQuery = "DELETE FROM relation WHERE RecipeID = ?";
+        try (Connection connection = this.connect(); PreparedStatement preparedStatement = connection.prepareStatement(deleteRelationQuery))
+        {
+            preparedStatement.setInt(1, recipeID);
+            preparedStatement.executeUpdate();
+            System.out.println("İlişkilendirilmiş malzemeler silindi. RecipeID: " + recipeID);
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
         String query = "DELETE FROM recipes WHERE RecipeID = ?";
 
         try (Connection connection = this.connect(); PreparedStatement preparedStatement = connection.prepareStatement(query))
@@ -387,18 +402,77 @@ public class Database {
         return ingredient;
     }
 
+    public List<String> getUnitListByRecipeId(int recipeId)
+    {
+        List<String> unitList = new ArrayList<>();
+        String query = "SELECT Unit FROM ingredients m " +
+                "JOIN relation t ON m.IngredientID = t.IngredientID " +
+                "WHERE t.RecipeID = ?";
+
+        try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement(query))
+        {
+            preparedStatement.setInt(1, recipeId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                unitList.add(resultSet.getString("Unit"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return unitList;
+    }
+
+    public List<String> getIngredientNameListByRecipeId(int recipeId)
+    {
+        List<String> ingredientNameList = new ArrayList<>();
+        String query = "SELECT IngredientName FROM ingredients m " + "JOIN relation t ON m.IngredientID = t.IngredientID " + "WHERE t.RecipeID = ?";
+
+        try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement(query))
+        {
+            preparedStatement.setInt(1, recipeId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+            {
+                ingredientNameList.add(resultSet.getString("IngredientName"));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return ingredientNameList;
+    }
+
+    public List<String> getIngredientQuantityListByRecipeId(int recipeId)
+    {
+        List<String> quantityList = new ArrayList<>();
+        String query = "SELECT IngredientQuantity FROM relation " + "WHERE RecipeID = ?";
+
+        try (Connection conn = connect(); PreparedStatement preparedStatement = conn.prepareStatement(query))
+        {
+            preparedStatement.setInt(1, recipeId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+            {
+                quantityList.add(resultSet.getString("IngredientQuantity"));
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return quantityList;
+    }
+
     public List<String> getIngredientsByRecipeId(int recipeId)
     {
         List<String> ingredientList = new ArrayList<>();
 
-        String query = "SELECT i.IngredientName, r.IngredientQuantity, i.Unit " +
-                "FROM relation r " +
-                "JOIN ingredients i ON r.IngredientID = i.IngredientID " +
-                "WHERE r.RecipeID = ?";
+        String query = "SELECT i.IngredientName, r.IngredientQuantity, i.Unit " + "FROM relation r " + "JOIN ingredients i ON r.IngredientID = i.IngredientID " + "WHERE r.RecipeID = ?";
 
-        try (Connection conn = connect();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
+        try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query))
+        {
             stmt.setInt(1, recipeId);
             ResultSet rs = stmt.executeQuery();
 
@@ -425,7 +499,7 @@ public class Database {
         int unitPrice = -1;
         String query = "SELECT UnitPrice FROM ingredients WHERE IngredientName = ?";
 
-        try (PreparedStatement pstmt = connect.prepareStatement(query))
+        try (Connection connection = connect(); PreparedStatement pstmt = connection.prepareStatement(query))
         {
             pstmt.setString(1, ingredientName);
             ResultSet rs = pstmt.executeQuery();
@@ -531,5 +605,132 @@ public class Database {
         }
 
         return unit;
+    }
+
+    public void updatePreparationTime(int recipeID, int newPreparationTime)
+    {
+        String query = "UPDATE recipes SET PreparationTime = ? WHERE RecipeID = ?";
+
+        try (Connection connection = this.connect();
+             PreparedStatement preparedStatement = connection.prepareStatement(query))
+        {
+
+            preparedStatement.setInt(1, newPreparationTime);
+            preparedStatement.setInt(2, recipeID);
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("PreparationTime başarıyla güncellendi. RecipeID: " + recipeID);
+            } else {
+                System.out.println("Güncellenmek istenen RecipeID bulunamadı: " + recipeID);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateInstructions(int recipeId, String instructions)
+    {
+        String query = "UPDATE recipes SET Instruction = ? WHERE RecipeID = ?";
+
+        try (Connection connection = this.connect();
+             PreparedStatement preparedStatement = connection.prepareStatement(query))
+        {
+
+            preparedStatement.setString(1, instructions);
+            preparedStatement.setInt(2, recipeId);
+
+            preparedStatement.executeUpdate();
+            System.out.println("Talimatlar başarıyla güncellendi.");
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateRecipeIngredients(int recipeId, VBox nameBox, VBox quantityBox)
+    {
+        String deleteQuery = "DELETE FROM relation WHERE RecipeID = ?";
+        try (Connection conn = connect();
+             PreparedStatement deleteStmt = conn.prepareStatement(deleteQuery)) {
+            deleteStmt.setInt(1, recipeId);
+            deleteStmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        List<String> ingredientNames = new ArrayList<>();
+        List<String> ingredientQuantities = new ArrayList<>();
+
+        for (Node node : nameBox.getChildren()) {
+            if (node instanceof Label) {
+                ingredientNames.add(((Label) node).getText());
+
+            }
+        }
+
+        for (Node node : quantityBox.getChildren()) {
+            if (node instanceof TextField) {
+                ingredientQuantities.add(((TextField) node).getText());
+            }
+        }
+
+        System.out.println("Size : " + ingredientNames.size());
+        System.out.println("Size : " + ingredientQuantities.size());
+
+        String insertQuery = "INSERT INTO relation (RecipeID, IngredientID, IngredientQuantity) " +
+                "VALUES (?, ?, ?)";
+        try (Connection conn = connect();
+             PreparedStatement insertStmt = conn.prepareStatement(insertQuery)) {
+            for (int i = 0; i < ingredientNames.size(); i++) {
+                int ingredientId = getIngredientIdByName(ingredientNames.get(i));
+
+                insertStmt.setInt(1, recipeId);
+                insertStmt.setInt(2, ingredientId);
+                insertStmt.setString(3, ingredientQuantities.get(i));
+                insertStmt.addBatch();
+            }
+            insertStmt.executeBatch();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private int getIngredientIdByName(String ingredientName) {
+        // Ingredient ID'sini almak için SQL sorgusu
+        String query = "SELECT IngredientID FROM ingredients WHERE IngredientName = ?";
+        try (Connection conn = connect();
+             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+            preparedStatement.setString(1, ingredientName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt("IngredientID");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("NULLL");
+        return -1; // Eğer bulunamazsa
+    }
+
+    public void printAllRelations() {
+        String query = "SELECT * FROM relation"; // relation tablosundaki tüm kayıtları al
+
+        try (Connection conn = connect();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                int recipeId = rs.getInt("RecipeID");
+                int ingredientId = rs.getInt("IngredientID");
+                float ingredientQuantity = rs.getFloat("IngredientQuantity");
+
+                // İlişki bilgilerini yazdır
+                System.out.println("Recipe ID: " + recipeId + ", Ingredient ID: " + ingredientId + ", Quantity: " + ingredientQuantity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Hata durumunda istisnayı yazdır
+        }
     }
 }

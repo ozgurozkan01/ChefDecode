@@ -3,7 +3,6 @@ package com.example.demo1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLOutput;
-import java.util.ResourceBundle;
 
 public class RecipeController
 {
@@ -131,24 +127,20 @@ public class RecipeController
     public void goToEdit()
     {
         try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("recipeEdit.fxml"));
+            Stage stage = (Stage) editButton.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editPage.fxml"));
+            Parent root = loader.load();
 
-            Parent editRoot = loader.load();
+            EditController editController = loader.getController();
+            editController.setRecipe(recipe);
+            editController.setPreviousScene(stage.getScene());
+            editController.setBeforeStage(stage);
+            editController.loadProperties();
 
-            // Edit controller implementations
-
-            Scene recipeDetailsScene = new Scene(editRoot);
-            Stage window = (Stage) anchor.getScene().getWindow();
-
-            if (window != null)
-            {
-                window.setScene(recipeDetailsScene);
-                window.show();
-            }
-        }
-        catch (IOException e)
-        {
+            stage.setScene(new Scene(root));
+            stage.setTitle("Edit Page");
+            stage.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

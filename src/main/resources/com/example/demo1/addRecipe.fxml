@@ -35,9 +35,19 @@
                   </VBox>
                   <VBox fx:id="ingredientBox" prefHeight="761.0" prefWidth="543.0">
                      <children>
-                        <ComboBox fx:id="ingredientCombo" onAction="#OnIngredientComboBoxPressed" prefHeight="25.0" prefWidth="260.0" promptText="Chose Ingredient" />
-                        <TextField fx:id="ingredientQuantity" promptText="Enter ingredient quantity " />
-                        <Button fx:id="addIngredient" mnemonicParsing="false" onAction="#OnAddIngredientButtonPressed" text="Add Ingredient" />
+                        <HBox prefHeight="21.0" prefWidth="543.0">
+                           <children>
+                              <ComboBox fx:id="ingredientCombo" onAction="#OnIngredientComboBoxPressed" prefHeight="25.0" prefWidth="260.0" promptText="Chose Ingredient" />
+                           </children>
+                        </HBox>
+                        <TextField fx:id="ingredientQuantity" prefHeight="25.0" prefWidth="433.0" promptText="Enter ingredient quantity " />
+                        <ComboBox fx:id="unitTypeCombo" prefHeight="25.0" prefWidth="262.0" promptText="Chose Unit Type" />
+                        <HBox prefHeight="32.0" prefWidth="543.0">
+                           <children>
+                              <Button fx:id="addIngredient" mnemonicParsing="false" onAction="#OnAddIngredientButtonPressed" text="Add Ingredient" />
+                              <Button fx:id="deleteLastIngredient" mnemonicParsing="false" onAction="#OnDeleteIngredientButtonPressed" prefHeight="25.0" prefWidth="113.0" text="Delete Ingredient" />
+                           </children>
+                        </HBox>
                         <ListView fx:id="addedIngredientList" prefHeight="666.0" prefWidth="543.0" />
                      </children>
                   </VBox>

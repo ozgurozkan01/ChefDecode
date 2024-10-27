@@ -4,7 +4,7 @@ conn = sqlite3.connect('/Users/ubeydgur/Projects/Java/ChefDecode/src/database/re
 
 c = conn.cursor()
 
-"""# Tablo oluşturma sorgusu
+# Tablo oluşturma sorgusu
 c.execute('''
 CREATE TABLE IF NOT EXISTS recipes(
     RecipeID INT NOT NULL PRIMARY KEY,
@@ -95,7 +95,7 @@ INSERT INTO relation VALUES
     (13, 13, 500.0), -- Çorba için 500 g sebze
     (14, 14, 4), -- Zeytinyağlı Enginar için 4 adet enginar
     (15, 15, 100.0); -- Tarator için 100 g ceviz
-''')"""
+''')
 
 """# sonuçları çıktı olarak gösterme
 c.execute("SELECT * FROM recipes, ingredients, relation")

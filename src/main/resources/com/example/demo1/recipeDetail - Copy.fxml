@@ -45,7 +45,7 @@
                                     <Image url="@star.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="rate" alignment="CENTER" prefHeight="68.0" prefWidth="35.0" text="3.5">
+                              <Label fx:id="rate" prefHeight="35.0" prefWidth="59.0" text="10.0">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -113,7 +113,7 @@
                                  </padding>
                               </Label>
                               <Button fx:id="saveButton" mnemonicParsing="false" onAction="#OnSavedButtonPressed" text="Save" />
-                              <Button fx:id="editButton" mnemonicParsing="false" text="Edit">
+                              <Button fx:id="editButton" mnemonicParsing="false" onAction="#OnEditButtonPressed" text="Edit">
                                  <HBox.margin>
                                     <Insets left="25.0" />
                                  </HBox.margin>
@@ -144,6 +144,9 @@
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
+                           <padding>
+                              <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                           </padding>
                         </VBox>
                      </children>
                   </VBox>

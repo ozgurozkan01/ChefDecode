@@ -179,5 +179,7 @@ public class MainController implements Initializable
         {
             System.out.println("Tarif bulunamadı.");
         }
+
+        database.printAllRelations();
     }
 }

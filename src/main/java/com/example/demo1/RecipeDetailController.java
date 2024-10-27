@@ -1,16 +1,22 @@
 package com.example.demo1;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 public class RecipeDetailController
 {
+    @FXML
+    private Button editButton;
     @FXML
     private VBox ingredients;
     @FXML
@@ -30,7 +36,7 @@ public class RecipeDetailController
     @FXML
     private Label unitPriceLabel;
 
-    Database db = new Database();
+    private Database db = new Database();
 
     boolean isSaved;
     Recipe recipe;
@@ -39,22 +45,7 @@ public class RecipeDetailController
     {
         this.recipe = recipe;
 
-/*
-        Label l = new Label();
-        l.setText("1-\u00A0Kýyma, tuz, karabiber, kimyon ve diðer baharatlarý bir kapta iyice yoðurun (5 dakika).");
-        l.setWrapText(true);
-        l.setStyle("-fx-font-size: 15px;");
-
-        Label l2 = new Label();
-        l2.setText("2-\u00A0Kýzartma tavasýnda 1-2 yemek kaþýðý yað ýsýtýn ve patlýcanlarý her iki tarafýný altýn rengi alana kadar kýzartýn (10 dakika).");
-        l2.setWrapText(true);
-        l2.setStyle("-fx-font-size: 15px;");
-
-        Label l3 = new Label();
-        l3.setText("3-\u00A0Karýþýmý yaðlanmýþ fýrýn kabýna dökün ve önceden ýsýtýlmýþ 180°C fýrýnda yaklaþýk 25-30 dakika piþirin (30 dakika).");
-        l3.setWrapText(true);
-        l3.setStyle("-fx-font-size: 15px;");
-*/
+        System.out.println("Recipe ID : " + recipe.getID());
 
         List<String> ingredientNameList = db.getIngredientsByRecipeId(recipe.getID());
 
@@ -68,10 +59,11 @@ public class RecipeDetailController
         }
 
         instructions.getChildren().add(new Label(recipe.getInstruction()));
+
         rate.setText(Float.toString(recipe.getRate()));
         ratedInfo.setText("( " + recipe.getNumberPoints() + " people rated )");
         recipeName.setText(recipe.getName());
-        preparationTimeLabel.setText(Integer.toString(recipe.getPreparationTime()));
+        preparationTimeLabel.setText(Integer.toString(recipe.getPreparationTime()) + " dk");
     }
 
     public void updateSaveButton(boolean b)
@@ -94,6 +86,22 @@ public class RecipeDetailController
     @FXML
     public void OnEditButtonPressed()
     {
+        try {
+            Stage stage = (Stage) editButton.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editPage.fxml"));
+            Parent root = loader.load();
 
+            EditController editController = loader.getController();
+            editController.setRecipe(recipe);
+            editController.setPreviousScene(stage.getScene());
+            editController.setBeforeStage(stage);
+            editController.loadProperties();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Edit Page");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
