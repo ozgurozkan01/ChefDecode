@@ -26,6 +26,7 @@ public class TopBarController
     private Button searchButton;
     @FXML
     private Button addStockButton;
+    private SearchPageController searchPageController = new SearchPageController();
 
     SavedRecipeController savedRecipeController;
 
@@ -74,10 +75,25 @@ public class TopBarController
         }
     }
 
-    public void OnSearchButtonPressed()
-    {
-        System.out.println("Search Button Pressed");
+    public void OnSearchButtonPressed(ActionEvent event) throws IOException {
+        if (searchBar.getText() != null && !searchBar.getText().isEmpty()) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("search-page.fxml"));
+            Parent mainRoot = loader.load();
+
+            // Controller'ı al
+            SearchPageController searchPageController = loader.getController();
+
+            Scene mainScene = new Scene(mainRoot);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(mainScene);
+            window.show();
+
+            searchPageController.searchStart(searchBar.getText());
+        }
     }
+
     public void OnAddRecipeButtonPressed(ActionEvent event)
     {
         try

@@ -956,6 +956,36 @@ public class Database {
         return false;
     }
 
+
+    public List<String> searchRecipe(int recipeId) {
+        List<String> name = new ArrayList<>();
+
+        String query = "SELECT rec.RecipeName, ing.IngredientName " +
+                "FROM relation rel " +
+                "JOIN recipes rec ON rel.RecipeID = rec.RecipeID " +
+                "JOIN ingredients ing ON rel.IngredientID = ing.IngredientID " +
+                "WHERE rel.RecipeID = ?;";
+
+        try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, recipeId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next())
+            {
+                String recipeName = rs.getString("RecipeName");
+                name.add(recipeName);
+                String ingredientName = rs.getString("IngredientName");
+                name.add(ingredientName);
+
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return name;
+    }
+
     boolean isIngredientsMatched(int existingRecipeId, List<Ingredient> newRecipeIngredients)
     {
         String ingredientQuery = "SELECT IngredientID, IngredientQuantity FROM relation WHERE RecipeID = ?";
