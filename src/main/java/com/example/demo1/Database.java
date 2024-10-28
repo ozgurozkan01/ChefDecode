@@ -8,7 +8,9 @@ import javafx.scene.layout.VBox;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Database {
     Connection connect = null;
@@ -915,7 +917,8 @@ public class Database {
 
             ResultSet rs = pstmt.executeQuery();
 
-            if (rs.next()) { // Sonuç varsa
+            if (rs.next())
+            {
                 quantity = rs.getFloat("IngredientQuantity");
             }
         }
@@ -925,5 +928,71 @@ public class Database {
         }
 
         return quantity;
+    }
+
+    public boolean isRecipeAlreadyExist(Recipe recipe, List<Ingredient> recipeIngredients)
+    {
+        String recipeCheckQuery = "SELECT RecipeID FROM recipes WHERE RecipeName = ? AND Category = ? AND PreparationTime = ? AND Instruction = ?";
+
+        try (Connection connection = this.connect(); PreparedStatement recipeCheckStmt = connection.prepareStatement(recipeCheckQuery)) {
+
+            recipeCheckStmt.setString(1, recipe.getName());
+            recipeCheckStmt.setString(2, recipe.getCategory());
+            recipeCheckStmt.setInt(3, recipe.getPreparationTime());
+            recipeCheckStmt.setString(4, recipe.getInstruction());
+
+            ResultSet rs = recipeCheckStmt.executeQuery();
+
+            if (rs.next())
+            {
+                int existingRecipeId = rs.getInt("RecipeID");
+                return !isIngredientsMatched(existingRecipeId, recipeIngredients);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    boolean isIngredientsMatched(int existingRecipeId, List<Ingredient> newRecipeIngredients)
+    {
+        String ingredientQuery = "SELECT IngredientID, IngredientQuantity FROM relation WHERE RecipeID = ?";
+
+        try (Connection connection = this.connect(); PreparedStatement ingredientStmt = connection.prepareStatement(ingredientQuery))
+        {
+            ingredientStmt.setInt(1, existingRecipeId);
+            ResultSet ingredientRs = ingredientStmt.executeQuery();
+
+            Map<Integer, Float> existingIngredients = new HashMap<>();
+            while (ingredientRs.next())
+            {
+                existingIngredients.put(ingredientRs.getInt("IngredientID"), ingredientRs.getFloat("IngredientQuantity"));
+            }
+
+            if (existingIngredients.size() != newRecipeIngredients.size())
+            {
+                return false;
+            }
+
+            for (Ingredient newIngredient : newRecipeIngredients)
+            {
+                if (!existingIngredients.containsKey(newIngredient.getIngredientID()) ||
+                        existingIngredients.get(newIngredient.getIngredientID()) != Float.parseFloat(newIngredient.getQuantity()))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 }

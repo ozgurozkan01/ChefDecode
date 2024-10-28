@@ -128,6 +128,8 @@ public class EditController
 
     public void loadProperties()
     {
+        instructionsBox.getChildren().clear();
+
         ObservableList<String> units = FXCollections.observableArrayList("kg", "g", "l", "ml", "adet");
         unitTypeCombo.setItems(units);
         unitTypeCombo.setVisible(false);

@@ -42,8 +42,6 @@ public class AddRecipeController implements Initializable
     @FXML
     private ComboBox<String> categoryCombo;
     @FXML
-    private TextField quantityText;
-    @FXML
     private VBox ingredientBox;
     @FXML
     private VBox recipeBox;
@@ -58,6 +56,7 @@ public class AddRecipeController implements Initializable
 
     private List<Ingredient> ingredientList = new ArrayList<>();
     private List<TextField> instructionTextFieldList = new ArrayList<>();
+    private List<Float> ingredientRelationQuantities = new ArrayList<>();
 
     int rowIndex = 5;
 
@@ -88,10 +87,11 @@ public class AddRecipeController implements Initializable
     {
         String ingredientName = isAddingNewIngredient ? newIngredientField.getText() : ingredientCombo.getValue();
         String quantityType = isAddingNewIngredient ? unitTypeCombo.getValue() : db.getIngredientUnitTypeByName(ingredientName);
-        String quantity = isAddingNewIngredient ? ingredientStorageQuantity.getText() : ingredientQuantity.getText();
+        String quantity = isAddingNewIngredient ? ingredientStorageQuantity.getText() : "0";
         String unitPrice = isAddingNewIngredient ? priceText.getText() : db.getIngredientUnitPrice(ingredientName);
 
-        if (!ingredientName.isEmpty() && !quantityType.isEmpty() && !quantity.isEmpty() && !unitPrice.isEmpty()) {
+        if (!ingredientName.isEmpty() && !quantityType.isEmpty() && !quantity.isEmpty() && !unitPrice.isEmpty())
+        {
             int ingredientID;
             Ingredient existingIngredient = db.getIngredientByName(ingredientName);
 
@@ -100,17 +100,22 @@ public class AddRecipeController implements Initializable
 
             Ingredient newIngredient = new Ingredient(ingredientID, ingredientName, quantity, quantityType, Integer.parseInt(unitPrice));
 
-            if (!ingredientNames.contains(newIngredient.getIngredientName())) {
+            if (!ingredientNames.contains(newIngredient.getIngredientName()))
+            {
                 ingredientNames.add(ingredientName);
                 addedIngredientList.setItems(ingredientNames);
                 ingredientList.add(newIngredient);
+                ingredientRelationQuantities.add(Float.parseFloat(ingredientQuantity.getText()));
 
-                if (isAddingNewIngredient && existingIngredient != null) {
+                if (isAddingNewIngredient && existingIngredient != null)
+                {
                     int updatedQuantity = Integer.parseInt(existingIngredient.getQuantity()) + Integer.parseInt(quantity);
                     existingIngredient.setQuantity(String.valueOf(updatedQuantity));
                     System.out.println("Updated storage for " + existingIngredient.getIngredientName() + ": " + existingIngredient.getQuantity());
                     db.updateIngredient(existingIngredient);
-                } else if (isAddingNewIngredient) {
+                }
+                else if (isAddingNewIngredient)
+                {
                     db.insertIngredient(newIngredient);
                 }
             }
@@ -161,19 +166,18 @@ public class AddRecipeController implements Initializable
         if (!name.isEmpty() && !category.isEmpty() && !instruction.isEmpty() && !preparationTime.isEmpty() && !ingredientList.isEmpty())
         {
             Recipe recipe = new Recipe(db.getMaxRecipeIdFromDatabase() + 1, name, category, Integer.parseInt(preparationTime), instruction, 0, 0);
-            db.insertRecipe(recipe);
-            MainController.recipes.add(recipe);
 
-            System.out.println(ingredientList.size());
-
-            for (var ingredient : ingredientList)
+            if (!db.isRecipeAlreadyExist(recipe, ingredientList))
             {
-                // db.insertIngredient(ingredient);
-                System.out.println(ingredient.getQuantity());
-                db.insertRelation(recipe.getID(), ingredient.getIngredientID(), Float.parseFloat(ingredient.getQuantity()));
+                db.insertRecipe(recipe);
+                MainController.recipes.add(recipe);
+
+                for (int i = 0; i < ingredientList.size(); i++)
+                {
+                    db.insertRelation(recipe.getID(), ingredientList.get(i).getIngredientID(), ingredientRelationQuantities.get(i));
+                }
             }
         }
-
     }
 
     public void OnAddNewRowButtonPressed()
@@ -189,7 +193,8 @@ public class AddRecipeController implements Initializable
     {
         if (!instructionTextFieldList.isEmpty())
         {
-            recipeBox.getChildren().remove(rowIndex--);
+            recipeBox.getChildren().remove(rowIndex - 1);
+            rowIndex--;
         }
     }
 
