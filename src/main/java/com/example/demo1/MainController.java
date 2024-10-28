@@ -88,7 +88,7 @@ public class MainController implements Initializable
                 RecipeController recipeController = fxmlLoader.getController();
                 recipeController.setData(recipe);
 
-                if (recipeColumn == 2)
+                if (recipeColumn == 3)
                 {
                     recipeColumn = 0;
                     recipeRow++;
@@ -96,7 +96,7 @@ public class MainController implements Initializable
 
                 recipesGrid.add(anchorPane, recipeColumn++, recipeRow);
 
-                GridPane.setMargin(anchorPane, new Insets(10));
+                GridPane.setMargin(anchorPane, new Insets(5));
             }
         }
 

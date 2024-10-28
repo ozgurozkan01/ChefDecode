@@ -14,6 +14,7 @@ public class Recipe
     private String starImgSrc;
     private float totalUnitPrice;
     private boolean isSaved;
+    boolean isRecipeVoted = false;
 
     public Recipe(int id, String name, String category, int preparationTime, String instruction, int numberPoints, float totalPoints) {
         this.recipeID = id;
@@ -77,4 +78,7 @@ public class Recipe
     public void setIsSaved(boolean isSaved) { this.isSaved = isSaved; }
 
     public boolean isSaved() { return isSaved; }
+
+    public boolean isVoted() { return isRecipeVoted; }
+    public void setVoted(boolean voted) { isRecipeVoted = voted; }
 }

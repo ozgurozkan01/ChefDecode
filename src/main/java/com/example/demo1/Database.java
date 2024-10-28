@@ -1025,4 +1025,24 @@ public class Database {
 
         return false;
     }
+
+
+    public void updateRecipePoints(int recipeId, double inputPoints)
+    {
+        String sql = "UPDATE recipes SET NumberPoints = NumberPoints + 1, TotalPoints = TotalPoints + ? WHERE RecipeID = ?";
+
+        try (Connection conn = this.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            // Parametreleri ayarla
+            pstmt.setDouble(1, inputPoints); // TotalPoints güncellemek için input değerini ekle
+            pstmt.setInt(2, recipeId); // Hangi tarifin güncelleneceği
+
+            // Sorguyu çalıştır
+            pstmt.executeUpdate();
+            System.out.println("Recipe points updated successfully.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
