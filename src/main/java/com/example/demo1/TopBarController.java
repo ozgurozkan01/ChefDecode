@@ -24,6 +24,8 @@ public class TopBarController
     private TextField searchBar;
     @FXML
     private Button searchButton;
+    @FXML
+    private Button addStockButton;
 
     SavedRecipeController savedRecipeController;
 
@@ -81,6 +83,25 @@ public class TopBarController
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("addRecipe.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            SavedRecipeController.isSavedRecipePageOpen = true;
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void OnAddtockButtonPressed(ActionEvent event)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("stockPage.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

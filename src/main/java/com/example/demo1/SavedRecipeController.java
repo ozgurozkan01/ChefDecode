@@ -31,6 +31,8 @@ public class SavedRecipeController implements Initializable
 
     static boolean isSavedRecipePageOpen = false;
 
+    private StockManager stockManager = new StockManager();
+
     public SavedRecipeController()
     {
     }
@@ -82,6 +84,8 @@ public class SavedRecipeController implements Initializable
                     fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
                     AnchorPane anchorPane = fxmlLoader.load();
+
+                    stockManager.setRecipeAvailabilityColor(recipe, anchorPane);
 
                     RecipeController recipeController = fxmlLoader.getController();
                     recipeController.setData(recipe);

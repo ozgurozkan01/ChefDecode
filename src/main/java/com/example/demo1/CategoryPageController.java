@@ -22,6 +22,7 @@ public class CategoryPageController implements Initializable {
     private ScrollPane scroll;
 
     private Database database = new Database();
+    private StockManager stockManager = new StockManager();
 
     private String buttonID;
     private int number = 0;
@@ -43,6 +44,8 @@ public class CategoryPageController implements Initializable {
                         fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
                         AnchorPane anchorPane = fxmlLoader.load();
+
+                        stockManager.setRecipeAvailabilityColor(recipe, anchorPane);
 
                         RecipeController recipeController = fxmlLoader.getController();
                         recipeController.setData(recipe);
@@ -69,6 +72,8 @@ public class CategoryPageController implements Initializable {
                         fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
                         AnchorPane anchorPane = fxmlLoader.load();
+
+                        stockManager.setRecipeAvailabilityColor(recipe, anchorPane);
 
                         RecipeController recipeController = fxmlLoader.getController();
                         recipeController.setData(recipe);

@@ -40,6 +40,7 @@ public class MainController implements Initializable
     private static String buttonID;
 
     private Database database = new Database();
+    private StockManager stockManager = new StockManager();
 
     public static List<Recipe> recipes = new ArrayList<>();
     private static List<Recipe> mainMostLikedRecipes = new ArrayList<>();
@@ -79,6 +80,8 @@ public class MainController implements Initializable
                 fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
                 AnchorPane anchorPane = fxmlLoader.load();
+
+                stockManager.setRecipeAvailabilityColor(recipe, anchorPane);
 
                 RecipeController recipeController = fxmlLoader.getController();
                 recipeController.setData(recipe);
@@ -124,6 +127,9 @@ public class MainController implements Initializable
                 fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/mainMostLikedRecipes.fxml"));
 
                 AnchorPane anchorPane = fxmlLoader.load();
+
+                stockManager.setRecipeAvailabilityColor(mostLikedRecipe, anchorPane);
+
                 MostLikedRecipeController mostLikedRecipeController = fxmlLoader.getController();
                 mostLikedRecipeController.setData(mostLikedRecipe);
 
@@ -165,19 +171,11 @@ public class MainController implements Initializable
         loadRecipes();
         loadMostLikedRecipes();
 
-        database.deleteRecipe(999);
-        Recipe r = database.getRecipe(999);
+        var r = database.getIngredientQuantitiesByRecipeId(16);
 
-        if (r != null)
+        for (var i : r)
         {
-            System.out.println("Tarif Adı: " + r.getName());
-            System.out.println("Kategori: " + r.getCategory());
-            System.out.println("Hazırlama Süresi: " + r.getPreparationTime() + " dakika");
-            System.out.println("Talimatlar: " + r.getInstruction());
-        }
-        else
-        {
-            System.out.println("Tarif bulunamadı.");
+            System.out.println("Quantities : " + i);
         }
 
         database.printAllRelations();

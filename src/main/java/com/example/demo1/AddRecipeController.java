@@ -172,8 +172,6 @@ public class AddRecipeController implements Initializable
                 System.out.println(ingredient.getQuantity());
                 db.insertRelation(recipe.getID(), ingredient.getIngredientID(), Float.parseFloat(ingredient.getQuantity()));
             }
-
-            System.out.println("Recipe ID : " + recipe.getID());
         }
 
     }
@@ -225,7 +223,7 @@ public class AddRecipeController implements Initializable
 
         ingredientCombo.setItems(ingredientOptions);
 
-        ObservableList<String> categoryList = FXCollections.observableArrayList("Main Courses", "Soups", "Appetizers", "Snacks", "Desserts");
+        ObservableList<String> categoryList = FXCollections.observableArrayList("mainCourse", "soup", "appetizer", "snack", "dessert");
         categoryCombo.setItems(categoryList);
 
 

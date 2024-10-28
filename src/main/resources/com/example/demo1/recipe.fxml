@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="anchor" onMouseClicked="#loadDetails" prefHeight="182.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.RecipeController">
    <children>
-      <ImageView fx:id="recipeImage" fitHeight="158.0" fitWidth="262.0" pickOnBounds="true">
+      <ImageView fx:id="recipeImage" fitHeight="152.0" fitWidth="254.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" AnchorPane.topAnchor="4.0">
          <image>
             <Image url="@çk.jpg" />
          </image>
