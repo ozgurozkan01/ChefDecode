@@ -64,6 +64,7 @@ public class RecipeDetailController
         ratedInfo.setText("( " + recipe.getNumberPoints() + " people rated )");
         recipeName.setText(recipe.getName());
         preparationTimeLabel.setText(Integer.toString(recipe.getPreparationTime()) + " dk");
+        unitPriceLabel.setText(recipe.getTotalUnitPrice() + " ₺");
     }
 
     public void updateSaveButton(boolean b)

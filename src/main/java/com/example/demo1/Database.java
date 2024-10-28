@@ -15,7 +15,7 @@ public class Database {
 
     private Connection connect() throws SQLException
     {
-        String url = "jdbc:sqlite:/Users/ozgur/Github/ChefDecode/src/database/rcp.db";
+        String url = "jdbc:sqlite:src/database/rcp.db";
         connect = DriverManager.getConnection(url);
 
         if (connect != null) {
@@ -550,6 +550,31 @@ public class Database {
 
         return ingredientList;
     }
+
+
+    public float getIngredientTotalUnitPrice(int recipeId) {
+        float totalUnitPrice = 0;
+
+        String query = "SELECT r.IngredientQuantity, i.UnitPrice " + "FROM relation r " + "JOIN ingredients i ON r.IngredientID = i.IngredientID " + "WHERE r.RecipeID = ?";
+
+        try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, recipeId);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next())
+            {
+                int ingredientName = rs.getInt("UnitPrice");
+                float ingredientQuantity = rs.getFloat("IngredientQuantity");
+
+                totalUnitPrice += ingredientName * ingredientQuantity;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return totalUnitPrice;
+    }
+
 
     public String getIngredientUnitPrice(String ingredientName)
     {

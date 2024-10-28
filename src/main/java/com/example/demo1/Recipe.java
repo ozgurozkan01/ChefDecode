@@ -12,7 +12,7 @@ public class Recipe
     private float rate;
     private String imgSrc;
     private String starImgSrc;
-
+    private float totalUnitPrice;
     private boolean isSaved;
 
     public Recipe(int id, String name, String category, int preparationTime, String instruction, int numberPoints, float totalPoints) {
@@ -66,6 +66,15 @@ public class Recipe
 
     public String getStarImgSrc() {return starImgSrc;}
 
+    public float getTotalUnitPrice() {
+        return totalUnitPrice;
+    }
+
+    public void setTotalUnitPrice(float totalUnitPrice) {
+        this.totalUnitPrice = totalUnitPrice;
+    }
+
     public void setIsSaved(boolean isSaved) { this.isSaved = isSaved; }
+
     public boolean isSaved() { return isSaved; }
 }

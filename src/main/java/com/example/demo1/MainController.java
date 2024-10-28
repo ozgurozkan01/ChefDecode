@@ -76,6 +76,8 @@ public class MainController implements Initializable
         {
             for (var recipe : recipes)
             {
+                recipe.setTotalUnitPrice(database.getIngredientTotalUnitPrice(recipe.getID()));
+
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/com/example/demo1/recipe.fxml"));
 
