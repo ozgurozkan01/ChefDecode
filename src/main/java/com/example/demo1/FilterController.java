@@ -21,6 +21,7 @@ public class FilterController implements Initializable {
     private ComboBox<String> addFilterIngredient;
     @FXML
     private TextField maxPriceField;
+    private static String staticMaxPriceField;
     @FXML
     private TextField maxTimeField;
     private static String staticMaxTimeField;
@@ -50,12 +51,6 @@ public class FilterController implements Initializable {
     private List<String> allIngredientNames = new ArrayList<>();
     public static List<Ingredient> ingredients = new ArrayList<>();
 
-
-    private List<Recipe> getRecipesData() {
-        List<Recipe> recipeList = database.getAllRecipes();
-
-        return recipeList;
-    }
 
     private List<Ingredient> getIngredientsData() {
         List<Ingredient> ingredientList = database.getAllIngredients();
@@ -136,6 +131,20 @@ public class FilterController implements Initializable {
         return null;
     }
 
+    private static Recipe maxPriceFiltering(Recipe recipe) {
+        if (staticMaxPriceField != null && !staticMaxPriceField.isEmpty()) {
+            try {
+                int maxPrice = Integer.parseInt(staticMaxPriceField);
+                if (recipe.getTotalUnitPrice() <= maxPrice) {
+                    return recipe;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Geçerli bir sayı girin.");
+            }
+        }
+        return null;
+    }
+
     private static Recipe ingredientsFiltering(Recipe recipe) {
         List<String> recipeIngredients = staticDatabase.getIngredientNameListByRecipeId(recipe.getID());
         System.out.println(recipeIngredients);
@@ -152,47 +161,40 @@ public class FilterController implements Initializable {
         Recipe ses = new Recipe(999, "deneme", "deneme", 999, "deneme", 999, 999);
         Recipe ses1 = ses;
         Recipe ses2 = ses;
+        Recipe ses3 = ses;
 
         if (staticMaxTimeField != null && !staticMaxTimeField.isEmpty()) {
             ses = maxTimeFiltering(recipe);
+        }
+
+        if (staticMaxPriceField != null && !staticMaxPriceField.isEmpty()) {
+            ses3 = maxPriceFiltering(recipe);
         }
 
         if (staticFilteredIngredients.size() != 0) {
             ses1 = ingredientsFiltering(recipe);
         }
 
-        if (ses == recipe && ses1 == recipe) {
+        if (ses == recipe && ses1 == recipe && ses3 == recipe) {
             return recipe;
         }
-        else if ((ses == recipe && ses1 == null) || (ses1 == recipe && ses == null)) {
+        else if (ses1 == null || ses == null || ses3 == null) {
             return null;
         }
-        else if ((ses == recipe && ses1 == ses2) || (ses1 == recipe && ses == ses2)) {
+        else if (ses == ses2 && ses1 == ses2 && ses3 == ses2) {
             return recipe;
         }
-        else if (ses != recipe && ses1 != recipe) {
-            return null;
+        else if (ses == recipe || ses1 == recipe || ses3 == recipe) {
+            return recipe;
         }
 
-
-        /*if (ses == ses1 && ses1 != ses2 && ses != ses2) {
-            System.out.println("ilk eşit");
-            return recipe;
-        }
-        else if (ses == ses1 && ses1 == ses2 && ses == ses2) {
-            return null;
-        }
-        else if ((ses != null && ses1 == ses2) || (ses1 != null && ses == ses2)) {
-            System.out.println("ikinci");
-            return recipe;
-        }
-        */
         return null;
     }
 
     public void categoryPageInitialize() throws IOException {
         staticMaxTimeField = maxTimeField.getText();
         staticFilteredIngredients = filteredIngredients;
+        staticMaxPriceField = maxPriceField.getText();
         staticDatabase = database;
 
         categoryPageController.basla(categoryPageController.heyGrid, number);
