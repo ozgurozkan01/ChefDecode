@@ -28,7 +28,7 @@
             </ScrollPane>
          </children>
       </HBox>
-      <HBox layoutX="-3.0" layoutY="-1.0" prefHeight="137.0" prefWidth="1250.0">
+      <HBox prefHeight="108.0" prefWidth="1250.0">
          <fx:include source="main-top-bar.fxml" />
       </HBox>
    </children>

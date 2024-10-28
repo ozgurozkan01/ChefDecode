@@ -19,7 +19,7 @@
             </Button>
             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="485.0" stylesheets="@style.css">
                <children>
-                  <TextField fx:id="searchBar" opacity="0.5" prefHeight="25.0" prefWidth="409.0" promptText="Search Recipe" styleClass="transparent" stylesheets="@style.css">
+                  <TextField fx:id="searchBar" onAction="#OnSearchButtonPressed" opacity="0.5" prefHeight="25.0" prefWidth="409.0" promptText="Search Recipe" styleClass="transparent" stylesheets="@style.css">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

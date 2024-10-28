@@ -47,7 +47,6 @@ public class FilterController implements Initializable {
 
     private CategoryPageController categoryPageController = new CategoryPageController();
 
-    private List<Recipe> filterRecipes;
     private List<String> allIngredientNames = new ArrayList<>();
     public static List<Ingredient> ingredients = new ArrayList<>();
 

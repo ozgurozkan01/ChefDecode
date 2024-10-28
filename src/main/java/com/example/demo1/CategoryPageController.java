@@ -18,10 +18,6 @@ public class CategoryPageController implements Initializable {
     private GridPane grid;
     static GridPane heyGrid;
 
-    @FXML
-    private ScrollPane scroll;
-
-    private Database database = new Database();
     private StockManager stockManager = new StockManager();
 
     private String buttonID;
@@ -64,7 +60,9 @@ public class CategoryPageController implements Initializable {
                 throw new RuntimeException(e);
             }
         }
-        else {
+        else if (number == 2) {
+
+        } else {
             try {
                 for (Recipe recipe : MainController.recipes) {
                     if (recipe.getCategory().equals(buttonID)) {
