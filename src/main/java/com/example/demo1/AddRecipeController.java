@@ -47,6 +47,10 @@ public class AddRecipeController implements Initializable
     private VBox recipeBox;
     @FXML
     private TextField ingredientQuantity;
+    @FXML
+    private Label recipeInformationLabel;
+    @FXML
+    private Label ingredientInformationLabel;
 
     ObservableList<String> ingredientNames = FXCollections.observableArrayList();
 
@@ -90,7 +94,50 @@ public class AddRecipeController implements Initializable
         String quantity = isAddingNewIngredient ? ingredientStorageQuantity.getText() : "0";
         String unitPrice = isAddingNewIngredient ? priceText.getText() : db.getIngredientUnitPrice(ingredientName);
 
-        if (!ingredientName.isEmpty() && !quantityType.isEmpty() && !quantity.isEmpty() && !unitPrice.isEmpty())
+        if (isAddingNewIngredient)
+        {
+            if (newIngredientField.getText().isEmpty())
+            {
+                newIngredientField.setPromptText("REQUIRED AREA");
+                newIngredientField.setStyle("-fx-prompt-text-fill: #FF0000");
+            }
+
+            String unitTypeComboValue = unitTypeCombo.getValue();
+
+            if (unitTypeComboValue == null || (unitTypeComboValue != null && unitTypeComboValue.isEmpty()))
+            {
+                unitTypeCombo.setPromptText("REQUIRED AREA");
+                unitTypeCombo.setStyle("-fx-prompt-text-fill: #FF0000");
+            }
+
+            if (ingredientStorageQuantity.getText().isEmpty())
+            {
+                ingredientStorageQuantity.setPromptText("REQUIRED AREA");
+                ingredientStorageQuantity.setStyle("-fx-prompt-text-fill: #FF0000");
+            }
+
+            if (priceText.getText().isEmpty())
+            {
+                priceText.setPromptText("REQUIRED AREA");
+                priceText.setStyle("-fx-prompt-text-fill: #FF0000");
+            }
+        }
+
+        if (ingredientQuantity.getText().isEmpty())
+        {
+            ingredientQuantity.setPromptText("REQUIRED AREA");
+            ingredientQuantity.setStyle("-fx-prompt-text-fill: #FF0000");
+        }
+
+        String ingredientComboValue = ingredientCombo.getValue();
+
+        if (ingredientComboValue == null || (ingredientComboValue != null && ingredientComboValue.isEmpty()))
+        {
+            ingredientCombo.setPromptText("REQUIRED AREA");
+            ingredientCombo.setStyle("-fx-prompt-text-fill: #FF0000");
+        }
+
+        if (ingredientName != null && !ingredientName.isEmpty() && !quantityType.isEmpty() && !quantity.isEmpty() && !unitPrice.isEmpty())
         {
             int ingredientID;
             Ingredient existingIngredient = db.getIngredientByName(ingredientName);
@@ -120,8 +167,11 @@ public class AddRecipeController implements Initializable
                 }
             }
         }
-
-        System.out.println(ingredientList.size());
+        else
+        {
+            ingredientInformationLabel.setVisible(true);
+            ingredientInformationLabel.setText("- You Have To Fill All Areas To Insert Recipe -");
+        }
     }
 
     public void OnDeleteIngredientButtonPressed()
@@ -142,7 +192,8 @@ public class AddRecipeController implements Initializable
             nameInput.setStyle("-fx-prompt-text-fill: #FF0000");
         }
         String category = categoryCombo.getValue();
-        if (category.isEmpty())
+
+        if (category == null || (category != null && category.isEmpty()))
         {
             categoryCombo.setPromptText("REQUIRED AREA");
             categoryCombo.setStyle("-fx-prompt-text-fill: #FF0000");
@@ -178,6 +229,11 @@ public class AddRecipeController implements Initializable
                 }
             }
         }
+        else
+        {
+            recipeInformationLabel.setVisible(true);
+            recipeInformationLabel.setText("- You Have To Fill All Areas To Insert Recipe -");
+        }
     }
 
     public void OnAddNewRowButtonPressed()
@@ -201,6 +257,9 @@ public class AddRecipeController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
+        recipeInformationLabel.setVisible(false);
+        ingredientInformationLabel.setVisible(false);
+
         ingredientStorageQuantity = new TextField();
         ingredientStorageQuantity.setPromptText("Enter Storage Quantity");
 
