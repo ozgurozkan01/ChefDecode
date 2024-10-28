@@ -88,7 +88,6 @@ public class CategoryPageController implements Initializable {
                 throw new RuntimeException(e);
             }
         }
-        System.out.println(grid.getChildren().size());
     }
 
     @Override

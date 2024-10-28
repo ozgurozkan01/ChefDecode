@@ -23,7 +23,7 @@ public class FilterController implements Initializable {
     private TextField maxPriceField;
     @FXML
     private TextField maxTimeField;
-    private static String deneof;
+    private static String staticMaxTimeField;
     @FXML
     private Button cancelButton1;
     @FXML
@@ -39,8 +39,10 @@ public class FilterController implements Initializable {
     private int number = 1;
 
     private List<String> filteredIngredients = new ArrayList<>();
+    private static List<String> staticFilteredIngredients = new ArrayList<>();
 
     private Database database = new Database();
+    private static Database staticDatabase = new Database();
 
     private CategoryPageController categoryPageController = new CategoryPageController();
 
@@ -103,15 +105,16 @@ public class FilterController implements Initializable {
             filteredIngredients.add(addFilterIngredient.getValue());
         }
 
-
         if (filteredIngredients.size() > 0) {
             cancelButton1.setVisible(true);
             filteredIngredient1.setText(filteredIngredients.get(0));
         }
+
         if (filteredIngredients.size() > 1) {
             cancelButton2.setVisible(true);
             filteredIngredient2.setText(filteredIngredients.get(1));
         }
+
         if (filteredIngredients.size() > 2) {
             cancelButton3.setVisible(true);
             filteredIngredient3.setText(filteredIngredients.get(2));
@@ -119,28 +122,78 @@ public class FilterController implements Initializable {
     }
 
 
-
-    public static Recipe filtering(Recipe recipe) {
-        String gir = deneof;
-
-        if (gir != null && !gir.isEmpty()) {
+    private static Recipe maxTimeFiltering(Recipe recipe) {
+        if (staticMaxTimeField != null && !staticMaxTimeField.isEmpty()) {
             try {
-                int maxTime = Integer.parseInt(gir);
+                int maxTime = Integer.parseInt(staticMaxTimeField);
                 if (recipe.getPreparationTime() <= maxTime) {
                     return recipe;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Geçerli bir sayı girin.");
             }
-        } else {
-            System.out.println("Boş bir değer girilemez.");
+        }
+        return null;
+    }
+
+    private static Recipe ingredientsFiltering(Recipe recipe) {
+        List<String> recipeIngredients = staticDatabase.getIngredientNameListByRecipeId(recipe.getID());
+        System.out.println(recipeIngredients);
+
+        for (int i=0; i < staticFilteredIngredients.size(); i++) {
+            if (!recipeIngredients.contains(staticFilteredIngredients.get(i))) {
+                return null;
+            }
+        }
+        return recipe;
+    }
+
+    public static Recipe filtering(Recipe recipe) {
+        Recipe ses = new Recipe(999, "deneme", "deneme", 999, "deneme", 999, 999);
+        Recipe ses1 = ses;
+        Recipe ses2 = ses;
+
+        if (staticMaxTimeField != null && !staticMaxTimeField.isEmpty()) {
+            ses = maxTimeFiltering(recipe);
         }
 
+        if (staticFilteredIngredients.size() != 0) {
+            ses1 = ingredientsFiltering(recipe);
+        }
+
+        if (ses == recipe && ses1 == recipe) {
+            return recipe;
+        }
+        else if ((ses == recipe && ses1 == null) || (ses1 == recipe && ses == null)) {
+            return null;
+        }
+        else if ((ses == recipe && ses1 == ses2) || (ses1 == recipe && ses == ses2)) {
+            return recipe;
+        }
+        else if (ses != recipe && ses1 != recipe) {
+            return null;
+        }
+
+
+        /*if (ses == ses1 && ses1 != ses2 && ses != ses2) {
+            System.out.println("ilk eşit");
+            return recipe;
+        }
+        else if (ses == ses1 && ses1 == ses2 && ses == ses2) {
+            return null;
+        }
+        else if ((ses != null && ses1 == ses2) || (ses1 != null && ses == ses2)) {
+            System.out.println("ikinci");
+            return recipe;
+        }
+        */
         return null;
     }
 
     public void categoryPageInitialize() throws IOException {
-        deneof = maxTimeField.getText();
+        staticMaxTimeField = maxTimeField.getText();
+        staticFilteredIngredients = filteredIngredients;
+        staticDatabase = database;
 
         categoryPageController.basla(categoryPageController.heyGrid, number);
     }
