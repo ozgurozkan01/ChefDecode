@@ -36,15 +36,6 @@ cd ChefDecode
 
 > Make sure you have Java and Maven installed.
 
-### 3. (Optional) Run Python scripts
-
-Some database operations are handled via Python:
-
-```bash
-cd src/database
-python database.py
-```
-
 ## 📁 Project Structure
 
 ```
